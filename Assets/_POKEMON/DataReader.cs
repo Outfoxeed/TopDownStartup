@@ -77,27 +77,31 @@ public class DataReader : MonoBehaviour
         => ReadData<PokemonData>(_pokemonFile).pokemons;
 
 
-    // TODO
     public Pokemon GetPokemonById(int id)
-        => throw new NotImplementedException();
+        => GetPokemons().First(pokemon => pokemon.id == id);
 
-    // TODO
     public IEnumerable<Pokemon> PokemonByType(string type)
-        => throw new NotImplementedException();
+        => GetPokemons().Where(pokemon => pokemon.type.Contains(type));
 
-    // TODO
     public List<int> GetTopPokemonByBasePower(int count)
-        => throw new NotImplementedException();
+        => GetPokemons()
+            .OrderByDescending(pokemon => pokemon.statbase.BasePower)
+            .Select(pokemon => pokemon.id)
+            .Take(count)
+            .ToList();
 
-    // TODO
     public List<int> GetDownPokemonByBasePower(int count)
-        => throw new NotImplementedException();
+        => GetPokemons()
+            .OrderBy(pokemon => pokemon.statbase.BasePower)
+            .Select(pokemon => pokemon.id)
+            .Take(count)
+            .ToList();
 
-    // TODO
     public int GetPokemonPowerById(int id)
-        => throw new NotImplementedException();
+        => GetPokemonById(id).statbase.BasePower;
 
     public IEnumerable<(int id, int power)> DecoratePokemonIdWithPower(IEnumerable<int> ids)
-        => throw new NotImplementedException();
-
+        => GetPokemons()
+            .Where(pokemon => ids.Contains(pokemon.id))
+            .Select(pokemon => (pokemon.id, pokemon.statbase.BasePower));
 }

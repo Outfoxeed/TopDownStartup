@@ -90,6 +90,17 @@ MonoBehaviour:
       alignment: 4
       upperCase: 1
       fontStyle: 1
+  - value: ---
+    skin:
+      normal:
+        textColor: {r: 1, g: 1, b: 1, a: 1}
+        bgColor: {r: 0.827451, g: 0.8226229, b: 0, a: 1}
+      selected:
+        textColor: {r: 1, g: 1, b: 1, a: 1}
+        bgColor: {r: 0.9019608, g: 0.49411765, b: 0.13333334, a: 1}
+      alignment: 4
+      upperCase: 1
+      fontStyle: 1
   endsWithHierarchyRules:
   - value: '>>'
     skin:

@@ -22,6 +22,8 @@ public class EntityMovement : MonoBehaviour
     Vector2 MoveDirection { get; set; }
     Vector2 OldVelocity { get; set; }
 
+    
+
     public Alterable<float> CurrentSpeed { get; private set; }
 
     #region EDITOR
@@ -41,6 +43,11 @@ public class EntityMovement : MonoBehaviour
 
     }
 
+
+    
+
+
+
     private void FixedUpdate()
     {
         // FireEvents
@@ -55,6 +62,7 @@ public class EntityMovement : MonoBehaviour
 
         // Keep old data
         OldVelocity = _rb.velocity;
+
     }
 
     public void Move(Vector2 direction) => MoveDirection = direction.normalized;

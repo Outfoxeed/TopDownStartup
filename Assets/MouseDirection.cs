@@ -6,7 +6,7 @@ namespace Game
 {
     public class MouseDirection : MonoBehaviour
     {
-        [SerializeField ]Rigidbody2D _rb;
+        //[SerializeField ]Rigidbody2D _rb;
 
         Vector2 mousePos;
 
@@ -20,10 +20,10 @@ namespace Game
 
         private void FixedUpdate()
         {
-            
-            Vector2 lookDir = mousePos - _rb.position;
+            Vector2 v2 = new Vector2(gameObject.transform.position.x, gameObject.transform.position.y);
+            Vector2 lookDir = mousePos - v2;
             float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
-            _rb.rotation = angle;
+            gameObject.transform.eulerAngles = new Vector3(0,0, angle);
         }
     }
 }

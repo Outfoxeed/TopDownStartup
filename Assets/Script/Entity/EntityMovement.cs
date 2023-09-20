@@ -10,6 +10,8 @@ public class EntityMovement : MonoBehaviour
 
     [SerializeField, BoxGroup("Configuration")] float _startSpeed;
 
+    private Transform player2;
+
     #region Events
     [SerializeField, Foldout("Event")] UnityEvent _onStartWalking;
     [SerializeField, Foldout("Event")] UnityEvent _onContinueWalking;
@@ -43,8 +45,8 @@ public class EntityMovement : MonoBehaviour
 
     }
 
+   
 
-    
 
 
 

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5424636757999434003}
   - component: {fileID: 4536374167832992806}
   - component: {fileID: 5998964361555672215}
+  - component: {fileID: 1885516207902481369}
   m_Layer: 0
   m_Name: --- SceneContext
   m_TagString: Untagged
@@ -48,6 +49,7 @@ MonoBehaviour:
   _scriptableObjectInstallers: []
   _monoInstallers:
   - {fileID: 5998964361555672215}
+  - {fileID: 1885516207902481369}
   _installerPrefabs: []
   _autoRun: 1
   OnPreInstall:
@@ -77,3 +79,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63443c5f969842b4989eb1df053665df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _updateSystem: {fileID: 8454790497143421920, guid: da26b2fa1a1022943a3f04754b67d1fd, type: 3}
+  _playerReference: {fileID: 11400000, guid: a17ad5991bc00fc41991e8b0cba566bf, type: 2}
+--- !u!114 &1885516207902481369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4309448586735331636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 929829c8ae3e413fab934033c1d9840c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _enemyPrefab: {fileID: 593443700343048644, guid: b5850dd2a29c0ba47abc858e4143c861, type: 3}
+  _waveSpawnerConfig: {fileID: 11400000, guid: 70605ea3e328ee54a8a51ea1bbebb160, type: 2}
+  _wavesData: {fileID: 11400000, guid: 88ae33420694cb94fabce91c405b307e, type: 2}

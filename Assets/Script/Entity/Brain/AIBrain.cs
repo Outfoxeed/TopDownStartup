@@ -1,9 +1,12 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Runtime.Enemies;
+using Game.Runtime.Entities;
+using Game.Runtime.HealthSystem;
 using UnityEngine;
 
-public class AIBrain : MonoBehaviour
+public class AIBrain : MonoBehaviour, IEnemy
 {
     [SerializeField, BoxGroup("Special Dependency")] PlayerReference _playerEntity;
 
@@ -59,4 +62,17 @@ public class AIBrain : MonoBehaviour
     }
 
 
+    [field: SerializeField]
+    public EntityGfx Gfx { get; private set; }
+    private EnemyData _enemyData;
+    
+    public IHealthComponent Health => _root.Health;
+    public Transform Transform => transform;
+    
+    public void SetData(EnemyData enemyData)
+    {
+        _enemyData = enemyData;
+        Health.Reset(_enemyData.MaxHealth);
+        Gfx.SetSprite(enemyData.Sprite);
+    }
 }

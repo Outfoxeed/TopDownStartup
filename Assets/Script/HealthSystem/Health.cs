@@ -1,68 +1,81 @@
-using NaughtyAttributes;
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading.Tasks;
+using Game.Runtime.HealthSystem;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
 
-public class Health : MonoBehaviour, IHealth
+public class Health : MonoBehaviour, IHealthComponent, IHealth
 {
-    [SerializeField] int _maxHealth;
+    [field: SerializeField] public int MaxHealth { get; private set; }
 
-    /// <summary>
-    /// coucou
-    /// </summary>
-    public int CurrentHealth 
-    {
-        get;
-        private set;
-    }
-    public bool IsDead => CurrentHealth > 0;
-    public int MaxHealth { get => _maxHealth; }
+    public int CurrentHealth { get; private set; }
+    public bool IsDead => CurrentHealth <= 0;
 
-    public event Action<int> OnDamage;
-    public event Action<int> OnRegen;
-    public event Action OnDie;
+    public event Action<int> Damaged;
+    public event Action<int> Healed;
+    public event Action Death;
 
-    public void Damage(int amount)
+    public float GetHealthPercentage() => CurrentHealth / (float)MaxHealth;
+
+    public void TakeDamage(int amount)
     {
         Assert.IsTrue(amount >= 0);
         if (IsDead) return;
 
         CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
-        OnDamage?.Invoke(amount);
+        if (IsDead)
+        {
+            InternalDie();
+        }
+        else
+        {
+            Damaged?.Invoke(amount);
+        }
     }
-    public void Regen(int amount)
+
+    public void Reset(int? maxHealth = null)
+    {
+        if (maxHealth is {} newMaxHealth)
+        {
+            MaxHealth = newMaxHealth;
+        }
+
+        CurrentHealth = MaxHealth;
+    }
+
+
+    public void Heal(int amount)
     {
         Assert.IsTrue(amount >= 0);
         if (IsDead) return;
-        InternalRegen(amount);
+        InternalHeal(amount);
     }
-    public void Kill()
-    {
-        if (IsDead) return;
-        InternalDie();
-    }
-
-    public void Revive(int amount)
-    {
-        Assert.IsTrue(amount >= 0);
-        if (!IsDead) return;
-        InternalRegen(amount);
-    }
-
-    void InternalRegen(int amount)
+    void InternalHeal(int amount)
     {
         Assert.IsTrue(amount >= 0);
 
         var old = CurrentHealth;
-        CurrentHealth = Mathf.Min(_maxHealth, CurrentHealth + amount);
-        OnRegen?.Invoke(CurrentHealth-old);
+        CurrentHealth = Mathf.Min(MaxHealth, CurrentHealth + amount);
+        Healed?.Invoke(CurrentHealth - old);
+    }
+    
+    public void Kill()
+    {
+        if (IsDead) return;
+        CurrentHealth = 0;
+        InternalDie();
     }
     void InternalDie()
     {
         if (!IsDead) return;
-        OnDie?.Invoke();
+        Death?.Invoke();
     }
+
+#if UNITY_EDITOR
+    [Button("TakeDamage")]
+    private void Editor_TakeDamage() => TakeDamage(1);
+
+    [Button("Die")]
+    private void Editor_Die() => Kill();
+#endif
 }

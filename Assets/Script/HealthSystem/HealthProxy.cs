@@ -7,8 +7,8 @@ public class HealthProxy : MonoBehaviour, IHealth
 {
     [SerializeField, Required] Health _target;
 
-    public void Damage(int amount) => _target.Damage(amount);
+    public void TakeDamage(int amount) => _target.TakeDamage(amount);
     public void Kill() => _target.Kill();
-    public void Regen(int amount) => _target.Regen(amount);
+    public void Heal(int amount) => _target.Heal(amount);
 
 }

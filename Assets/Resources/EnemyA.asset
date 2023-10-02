@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemyA
   m_EditorClassIdentifier: 
   <MaxHealth>k__BackingField: 10
-  <MoveSpeed>k__BackingField: 1
+  <MoveSpeed>k__BackingField: 30000
   <Sprite>k__BackingField: {fileID: 6352683301991889936, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}

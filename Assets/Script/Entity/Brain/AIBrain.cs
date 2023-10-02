@@ -73,6 +73,7 @@ public class AIBrain : MonoBehaviour, IEnemy
     {
         _enemyData = enemyData;
         Health.Reset(_enemyData.MaxHealth);
+        _movement.SetSpeed(enemyData.MoveSpeed);
         Gfx.SetSprite(enemyData.Sprite);
     }
 }

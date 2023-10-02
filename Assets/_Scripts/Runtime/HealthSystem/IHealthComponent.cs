@@ -1,4 +1,5 @@
 ﻿using System;
+using Game.Runtime.MusketeerEvents;
 
 namespace Game.Runtime.HealthSystem
 {
@@ -7,9 +8,9 @@ namespace Game.Runtime.HealthSystem
         int MaxHealth { get; }
         int CurrentHealth { get; }
         bool IsDead { get; }
-        event Action<int> Damaged;
-        event Action<int> Healed;
-        event Action Death;
+        MusketeerEvent<int> Damaged { get; }
+        MusketeerEvent<int> Healed { get; }
+        MusketeerEvent Death { get; }
         float GetHealthPercentage();
         void Reset(int? maxHealth = null);
     }

@@ -18,8 +18,8 @@ namespace Game.Runtime.WaveSpawner.WaveCommands.SpawnEnemiesCommands
             enemy.SetData(enemyData);
             
             Vector3 offset = new Vector3(
-                x: UnityEngine.Random.Range(0f, 1f),
-                y: UnityEngine.Random.Range(0f, 1f),
+                x: UnityEngine.Random.Range(-1f, 1f),
+                y: UnityEngine.Random.Range(-1f, 1f),
                 z: 0
             ).normalized * _waveSpawner.SpawnRange;
             enemy.transform.position = _waveSpawner.PlayerReference.Instance.transform.position 

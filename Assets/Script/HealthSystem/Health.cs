@@ -1,5 +1,6 @@
 using System;
 using Game.Runtime.HealthSystem;
+using Game.Runtime.MusketeerEvents;
 using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.Assertions;
@@ -12,9 +13,9 @@ public class Health : MonoBehaviour, IHealthComponent, IHealth
     public int CurrentHealth { get; private set; }
     public bool IsDead => CurrentHealth <= 0;
 
-    public event Action<int> Damaged;
-    public event Action<int> Healed;
-    public event Action Death;
+    [field: SerializeField] public MusketeerEvent<int> Damaged { get; private set; } = new();
+    [field: SerializeField] public MusketeerEvent<int> Healed { get; private set; } = new();
+    [field: SerializeField] public MusketeerEvent Death { get; private set; } = new();
 
     private void Awake()
     {

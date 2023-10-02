@@ -10,8 +10,7 @@ using Zenject;
 public class PlayerBrain : MonoBehaviour
 {
     [SerializeField, BoxGroup("Dependencies")] EntityMovement _movement;
-    private Shooter _shooter;
-    public Shooter Shooter => _shooter;
+    public Shooter Shooter { get; private set; }
 
     [SerializeField, BoxGroup("Input")] InputActionProperty _moveInput;
     [SerializeField, BoxGroup("Input")] InputActionProperty _attackInput;
@@ -20,7 +19,7 @@ public class PlayerBrain : MonoBehaviour
     [Inject]
     public void Construct(IGunFactory gunFactory)
     {
-        _shooter = new Shooter(transform, gunFactory);
+        Shooter = new Shooter(transform, gunFactory);
     }
     
     private void Start()

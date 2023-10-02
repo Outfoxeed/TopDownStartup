@@ -98,3 +98,4 @@ MonoBehaviour:
   _enemyPrefab: {fileID: 593443700343048644, guid: b5850dd2a29c0ba47abc858e4143c861, type: 3}
   _waveSpawnerConfig: {fileID: 11400000, guid: 70605ea3e328ee54a8a51ea1bbebb160, type: 2}
   _wavesData: {fileID: 11400000, guid: 88ae33420694cb94fabce91c405b307e, type: 2}
+  _gunGeneratorConfig: {fileID: 11400000, guid: 236f0bc259f8733489a23b3b37d7f447, type: 2}

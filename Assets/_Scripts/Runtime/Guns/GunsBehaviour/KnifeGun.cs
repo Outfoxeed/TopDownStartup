@@ -14,7 +14,7 @@ namespace Game.Runtime.Guns
         [SerializeField] private float delay = 3f;
         private float chrono;
 
-        public KnifeGun(IShooter owner, IUpdateSystem updateSystem) : base(owner, updateSystem)
+        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool) : base(owner, updateSystem, objPool)
         {
         }
 

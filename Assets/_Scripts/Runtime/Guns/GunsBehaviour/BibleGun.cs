@@ -19,7 +19,7 @@ namespace Game.Runtime.Guns
         private float chrono;
         private bool isOn;
 
-        public BibleGun(IShooter owner, IUpdateSystem updateSystem) : base(owner, updateSystem)
+        public BibleGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool) : base(owner, updateSystem, objPool)
         {
         }
 

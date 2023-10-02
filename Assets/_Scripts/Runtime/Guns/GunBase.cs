@@ -9,7 +9,7 @@ namespace Game.Runtime.Guns
         protected IDisposable _updateSubscription;
         protected IShooter _owner;
 
-        protected GunBase(IShooter owner, IUpdateSystem updateSystem)
+        protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool)
         {
             _owner = owner;
             _updateSubscription = updateSystem.SubsribeToUpdate(this);

@@ -7,7 +7,9 @@
         "NaughtyAttributes.Core",
         "Cinemachine",
         "UnityEngine.Advertisements",
-        "Zenject"
+        "Zenject",
+        "AYellowpaper.SerializedCollections",
+        "AYellowpaper.SerializedCollections.Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

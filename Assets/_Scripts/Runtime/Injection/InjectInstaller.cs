@@ -16,6 +16,8 @@ namespace Game
             
             //Container.Bind<Patate>().AsSingle().NonLazy();
             Container.Bind<IUpdateSystem>().FromComponentInNewPrefab(_updateSystem).AsSingle().NonLazy();
+
+            Container.Bind<PoolManager>().AsSingle().NonLazy();
         }
     }
 }

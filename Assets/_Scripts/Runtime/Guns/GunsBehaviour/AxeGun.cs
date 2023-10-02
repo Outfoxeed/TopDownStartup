@@ -10,7 +10,7 @@ namespace Game.Runtime.Guns
     public class AxeGun : GunBase
     {
         //[SerializeField] private GameObject TEMP_prefab;
-        [SerializeField] private float power = 2;
+        [SerializeField] private float speed = 2;
         [SerializeField] private float delay = 3f;
         private float chrono;
 
@@ -22,9 +22,12 @@ namespace Game.Runtime.Guns
         {
             //GameObject a = GameObject.Instantiate(TEMP_prefab);
 
-            Vector2 dir = new Vector2(Mathf.Cos(UnityEngine.Random.Range(0, Mathf.PI)), Mathf.Sin(UnityEngine.Random.Range(0, Mathf.PI)) * power);
+            float radian = UnityEngine.Random.Range(0, Mathf.PI);
+            Vector2 dir = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized;
+            Vector2 move = dir * speed;
+
             //a.transform.position = _owner.Transform.position;
-            //a.GetComponent<Rigidbody2D>().velocity += dir;
+            //a.GetComponent<Rigidbody2D>().velocity += move;
         }
 
         public override void Update(float deltaTime)

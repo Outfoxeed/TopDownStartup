@@ -8,12 +8,18 @@ public class Health : MonoBehaviour, IHealthComponent, IHealth
 {
     [field: SerializeField] public int MaxHealth { get; private set; }
 
+    [field: SerializeField, ReadOnly]
     public int CurrentHealth { get; private set; }
     public bool IsDead => CurrentHealth <= 0;
 
     public event Action<int> Damaged;
     public event Action<int> Healed;
     public event Action Death;
+
+    private void Awake()
+    {
+        CurrentHealth = MaxHealth;
+    }
 
     public float GetHealthPercentage() => CurrentHealth / (float)MaxHealth;
 

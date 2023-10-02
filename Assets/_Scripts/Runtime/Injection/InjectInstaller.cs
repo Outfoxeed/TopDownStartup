@@ -11,6 +11,7 @@ namespace Game
         [SerializeField] private UpdateSystem _updateSystem;
         [SerializeField] private PlayerReference _playerReference;
         [SerializeField] private GunProjectileDict _gunSpriteDict;
+        [SerializeField] private PoolManager _poolManagerPrefab;
         public override void InstallBindings()
         {
             // Scriptable
@@ -20,7 +21,7 @@ namespace Game
             //Container.Bind<Patate>().AsSingle().NonLazy();
             Container.Bind<IUpdateSystem>().FromComponentInNewPrefab(_updateSystem).AsSingle().NonLazy();
 
-            Container.Bind<PoolManager>().AsSingle().NonLazy();
+            Container.Bind<PoolManager>().FromComponentInNewPrefab(_poolManagerPrefab).AsSingle().NonLazy();
         }
     }
 }

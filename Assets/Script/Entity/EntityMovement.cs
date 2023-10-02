@@ -79,4 +79,8 @@ public class EntityMovement : MonoBehaviour
 
     }
 
+    public void SetSpeed(float speed)
+    {
+        _startSpeed = speed;
+    }
 }

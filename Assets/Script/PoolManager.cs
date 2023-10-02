@@ -8,7 +8,7 @@ namespace Game
     public class PoolManager : MonoBehaviour
     {
         public static PoolManager instance;
-        [SerializeField] ObjectPool pool;
+        [SerializeField] PoolData pool;
         private void Awake()
         {
             if (instance == null)
@@ -16,9 +16,9 @@ namespace Game
                 instance = this;
             }
         }
-        public ObjectPool Get(GameObject prefab)
+        public PoolData Get(GameObject prefab)
         {
-            ObjectPool myObjectPool = ObjectPool.Instantiate(pool); 
+            PoolData myObjectPool = PoolData.Instantiate(pool); 
             myObjectPool.SetPrefab(prefab);
             return myObjectPool;
         }

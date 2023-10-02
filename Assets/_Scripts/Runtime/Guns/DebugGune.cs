@@ -5,7 +5,7 @@ namespace Game.Runtime.Guns
 {
     public class DebugGune : GunBase
     {
-        public DebugGune(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool) : base(owner, updateSystem, objPool)
+        public DebugGune(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
         {
         }
         

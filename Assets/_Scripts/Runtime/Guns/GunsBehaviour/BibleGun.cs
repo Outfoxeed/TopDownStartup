@@ -10,8 +10,8 @@ namespace Game.Runtime.Guns
     public class BibleGun : GunBase
     {
         private List<Rigidbody2D> projectiles = new List<Rigidbody2D>();
-        [SerializeField] private float r = 1f;
-        [SerializeField] private float speed = 0.05f;
+        [SerializeField] private float r = 2f;
+        [SerializeField] private float speed = 2f;
         private float deg = 0;
 
         [SerializeField] private float delay = 3f;
@@ -19,15 +19,17 @@ namespace Game.Runtime.Guns
         private float chrono;
         private bool isOn;
 
-        public BibleGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool) : base(owner, updateSystem, objPool)
+        public BibleGun(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
         {
         }
 
         public override void Shoot()
         {
-            //INIT
+            //TEMP
+            for (int i = 0; i < 4; i++)
+                projectiles.Add(_projectilePool.Pool.Get());
+
             deg = 0;
-            //TODO : Activer Sprite
 
             for (int i = 0; i < projectiles.Count; i++)
             {
@@ -51,15 +53,19 @@ namespace Game.Runtime.Guns
             {
                 chrono = 0f;
                 isOn = false;
-                //TODO : Desactiver sprite
+                
+                for (int i = 0;i < projectiles.Count; i++)
+                    _projectilePool.Pool.Release(projectiles[i]);
+
+                projectiles.Clear();
             }
 
             if(isOn) 
             { 
-                deg += speed;
+                deg += speed / 100;
                 for(int i = 0; i < projectiles.Count; i++)
                 {
-                        projectiles[i].MovePosition(new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r + (Vector2)_owner.Transform.position);
+                    projectiles[i].MovePosition(new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r + (Vector2)_owner.Transform.position);
                 }   
             }
 

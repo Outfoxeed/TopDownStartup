@@ -9,6 +9,8 @@
         "UnityEngine.Advertisements",
         "Zenject",
         "ScriptableObject-Architecture"
+        "AYellowpaper.SerializedCollections",
+        "AYellowpaper.SerializedCollections.Editor"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

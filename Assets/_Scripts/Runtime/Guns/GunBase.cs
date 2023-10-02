@@ -8,11 +8,13 @@ namespace Game.Runtime.Guns
     {
         protected IDisposable _updateSubscription;
         protected IShooter _owner;
+        protected PoolData _projectilePool;
 
-        protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool)
+        protected GunBase(IShooter owner, IUpdateSystem updateSystem, PoolData objPool)
         {
             _owner = owner;
             _updateSubscription = updateSystem.SubsribeToUpdate(this);
+            _projectilePool = objPool;
         }
 
         public void Deconstruct()

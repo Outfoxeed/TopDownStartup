@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c7252c8658afd143b5c0de55ffdf89b, type: 3}
+  m_Name: Gun Sprite Dict
+  m_EditorClassIdentifier: 
+  projectilePrefabDict:
+    _serializedList:
+    - Key: 2
+      Value: {fileID: 6327449505603284136, guid: 9b1e5fb49af4e59468eeec2d48b4f08f, type: 3}
+    - Key: 1
+      Value: {fileID: 5632576374890545000, guid: cf5d81aaf437fae4f9164f596bf604de, type: 3}
+    - Key: 3
+      Value: {fileID: 2093354176608504019, guid: 16cfa2b0170fa4643b054a48dc26c321, type: 3}
+    - Key: 0
+      Value: {fileID: 8689800263330030728, guid: fa0c33d4769cdcb4aa1a66d798488053, type: 3}
+    - Key: -2147483648
+      Value: {fileID: 8689800263330030728, guid: fa0c33d4769cdcb4aa1a66d798488053, type: 3}

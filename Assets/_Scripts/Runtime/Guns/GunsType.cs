@@ -8,6 +8,7 @@ namespace Game.Runtime.Guns
         MagicWand = 0,
         Bible = 1,
         Axes = 2,
+        Knife = 3
     }
 
     public static class GunsTypeUtils

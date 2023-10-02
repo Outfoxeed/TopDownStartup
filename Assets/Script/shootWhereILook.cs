@@ -26,10 +26,10 @@ namespace Game
 
         IEnumerator Shoot()
         {
-            ObjectPool myObjectPool = PoolManager.instance.Get(bulletPrefab);
+            PoolData myObjectPool = PoolManager.instance.Get(bulletPrefab);
             while (shoot == true)
             {
-                GameObject bullet = myObjectPool.GetPoolObject();
+                GameObject bullet = myObjectPool.Pool.Get().gameObject;
                 if (bullet != null)
                 {
                     bullet.transform.position = firePoint.position;

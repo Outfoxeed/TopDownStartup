@@ -2,6 +2,7 @@ using Game.Runtime.UpdateSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace Game.Runtime.Guns
@@ -9,23 +10,31 @@ namespace Game.Runtime.Guns
     [Serializable]
     public class KnifeGun : GunBase
     {
-        //[SerializeField] private GameObject TEMP_projectile;
-        [SerializeField] private float speed;
+        [SerializeField] private float speed = 5;
         [SerializeField] private float delay = 3f;
         private float chrono;
 
-        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool objPool) : base(owner, updateSystem, objPool)
+        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
         {
         }
 
         public override void Shoot()
         {
-            //GameObject a = GameObject.Instantiate(TEMP_projectile);
+            Rigidbody2D projectile = _projectilePool.Pool.Get();
 
             Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
 
-            //a.GetComponent<Rigidbody2D>().velocity = move;
+            projectile.transform.position = _owner.Transform.position;
+            projectile.velocity += move;
+
+            Do(projectile);
+        }
+
+        async Task Do(Rigidbody2D rb)
+        {
+            await Task.Delay(5000);
+            _projectilePool.Pool.Release(rb);
         }
 
         public override void Update(float deltaTime)

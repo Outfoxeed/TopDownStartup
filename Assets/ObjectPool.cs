@@ -6,30 +6,27 @@ namespace Game
 {
     public class ObjectPool : MonoBehaviour
     {
-        public static ObjectPool instance;
-
 
         private List<GameObject> poolObjects = new List<GameObject>();
         private int amountToPool = 20;
         [SerializeField] private GameObject bulletPrefab;
 
+        
+        public void SetPrefab(GameObject prefab)
+        {
+            bulletPrefab = prefab;
+        }
         private void Awake()
         {
-            if(instance == null)
-            {
-                instance = this;
-            }
-        }
-
-        private void Start()
-        {
-            for(int i = 0; i < amountToPool; i++)
+            for (int i = 0; i < amountToPool; i++)
             {
                 GameObject obj = Instantiate(bulletPrefab);
                 obj.SetActive(false);
                 poolObjects.Add(obj);
             }
+
         }
+        
 
         public GameObject GetPoolObject()
         {

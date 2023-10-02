@@ -1,9 +1,6 @@
 ﻿namespace Game.Runtime.Guns
 {
-    public interface IShooter
+    public interface IShooter : IHasTransform
     {
-        public void OnDamageApplied(DamageAppliedEvent damageAppliedEvent)
-        {
-        }
     }
 }

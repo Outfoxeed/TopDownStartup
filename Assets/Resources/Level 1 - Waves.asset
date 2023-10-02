@@ -15,9 +15,19 @@ MonoBehaviour:
   <Waves>k__BackingField:
   - rid: 4091195300608475145
   - rid: 4091195300608475144
+  - rid: 3944090098286723074
   references:
     version: 2
     RefIds:
+    - rid: 3944090098286723074
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Spawn Enemies
+        _duration: 10
+        _spawnPerSecond: 2
+        _enemies:
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
     - rid: 4091195300608475144
       type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
       data:

@@ -1,8 +1,11 @@
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
+using Game.Runtime;
+using Game.Runtime.Guns.Factory;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using Zenject;
 
 public class AnimationWait : CustomYieldInstruction
 {
@@ -31,10 +34,17 @@ public static class AnimationExtension
 public class PlayerBrain : MonoBehaviour
 {
     [SerializeField, BoxGroup("Dependencies")] EntityMovement _movement;
+    private Shooter _shooter;
 
     [SerializeField, BoxGroup("Input")] InputActionProperty _moveInput;
     [SerializeField, BoxGroup("Input")] InputActionProperty _attackInput;
 
+    [Inject]
+    public void Construct(IGunFactory gunFactory)
+    {
+        _shooter = new Shooter(transform, gunFactory);
+    }
+    
     private void Start()
     {
         // Move

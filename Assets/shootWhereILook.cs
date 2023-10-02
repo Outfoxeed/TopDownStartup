@@ -27,7 +27,13 @@ namespace Game
         {
             while(shoot == true)
             {
-                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+                GameObject bullet = ObjectPool.instance.GetPoolObject();
+                if(bullet != null)
+                {
+                    bullet.transform.position = firePoint.position;
+                    bullet.SetActive(true);
+                }
+
                 Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
                 rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(timeBetweenBullet);

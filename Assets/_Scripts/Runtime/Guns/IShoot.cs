@@ -2,6 +2,6 @@
 {
     public interface IShoot
     {
-        public void Shoot(IShooter source);
+        public void Shoot();
     }
 }

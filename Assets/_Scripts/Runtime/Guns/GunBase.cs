@@ -19,7 +19,7 @@ namespace Game.Runtime.Guns
             _updateSubscription = null;
         }
 
-        public abstract void Shoot(IShooter source);
+        public abstract void Shoot();
         public abstract void Update(float deltaTime);
     }
 }

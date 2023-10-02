@@ -1,3 +1,4 @@
+using Game.Runtime.UpdateSystem;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -13,11 +14,15 @@ namespace Game.Runtime.Guns
         [SerializeField] private float speed = 0.05f;
         private float deg = 0;
 
+        public BibleGun(IShooter owner, IUpdateSystem updateSystem) : base(owner, updateSystem)
+        {
+        }
+
         public override void Shoot()
         {   
             for (int i = 0; i < projectiles.Count; i++)
             {
-                projectiles[i].position = new Vector2(Mathf.Cos(2 * Mathf.PI / projectiles.Count * i), Mathf.Sin(2 * Mathf.PI / projectiles.Count * i)) * r /* + player pos */;
+                projectiles[i].position = new Vector2(Mathf.Cos(2 * Mathf.PI / projectiles.Count * i), Mathf.Sin(2 * Mathf.PI / projectiles.Count * i)) * r + (Vector2)_owner.Transform.position;
             }
         }
 
@@ -26,7 +31,7 @@ namespace Game.Runtime.Guns
             deg += speed;
             for(int i = 0; i < projectiles.Count; i++)
             {
-                    projectiles[i].MovePosition(new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r) /* + player pos */;
+                    projectiles[i].MovePosition(new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r + (Vector2)_owner.Transform.position);
             }   
         }
     }

@@ -9,7 +9,7 @@ namespace Game.Runtime.Guns
         {
         }
         
-        public override void Shoot(IShooter source)
+        public override void Shoot()
         {
             Debug.Log("PEW SHOOT");
         }

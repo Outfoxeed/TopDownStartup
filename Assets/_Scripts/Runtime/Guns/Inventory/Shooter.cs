@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using Game.Runtime.Guns;
 using Game.Runtime.Guns.Factory;
 using UnityEngine;
@@ -18,6 +19,7 @@ namespace Game.Runtime
             _gunFactory = gunFactory;
         }
 
+        public GunsType[] GetGunTypes() => _guns.Keys.ToArray();
         public bool HasGun(GunsType gunsType) => _guns.ContainsKey(gunsType);
 
         public bool AddGun(GunsType gunType)
@@ -31,5 +33,6 @@ namespace Game.Runtime
             return true;
         }
 
+        public int GunCount() => _guns.Count;
     }
 }

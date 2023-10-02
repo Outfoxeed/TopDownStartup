@@ -11,6 +11,8 @@ namespace Game.Runtime.Guns
     {
         //[SerializeField] private GameObject TEMP_prefab;
         [SerializeField] private float power = 2;
+        [SerializeField] private float delay = 3f;
+        private float chrono;
 
         public AxeGun(IShooter owner, IUpdateSystem updateSystem) : base(owner, updateSystem)
         {
@@ -27,7 +29,12 @@ namespace Game.Runtime.Guns
 
         public override void Update(float deltaTime)
         {
-            throw new System.NotImplementedException();
+            chrono += deltaTime;
+            if (chrono >= delay)
+            {
+                chrono = 0;
+                Shoot();
+            }
         }
     }
 }

@@ -8,7 +8,7 @@
         "Cinemachine",
         "UnityEngine.Advertisements",
         "Zenject",
-        "ScriptableObject-Architecture"
+        "ScriptableObject-Architecture",
         "AYellowpaper.SerializedCollections",
         "AYellowpaper.SerializedCollections.Editor"
     ],

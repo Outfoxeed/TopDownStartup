@@ -7,12 +7,14 @@ namespace Game.Runtime.Guns
     public abstract class GunBase : IGun
     {
         protected IDisposable _updateSubscription;
+        protected IShooter _owner;
 
-        [Inject]
-        public virtual void Construct(IUpdateSystem updateSystem)
+        protected GunBase(IShooter owner, IUpdateSystem updateSystem)
         {
+            _owner = owner;
             _updateSubscription = updateSystem.SubsribeToUpdate(this);
         }
+
         public void Deconstruct()
         {
             _updateSubscription.Dispose();

@@ -1,4 +1,5 @@
 ﻿using Game.Runtime.Enemies;
+using Game.Runtime.Guns.Factory;
 using Game.Runtime.WaveSpawner;
 using UnityEngine;
 using Zenject;
@@ -23,6 +24,9 @@ namespace Game.Runtime.Injection
             // Scriptable objects
             Container.Bind<WaveSpawnerConfig>().FromInstance(_waveSpawnerConfig).AsSingle();
             Container.Bind<WavesData>().FromInstance(_wavesData).AsSingle();
+            
+            // Factories
+            Container.Bind<IGunFactory>().To<GunFactory>().AsSingle().NonLazy();
             
             // Systems
             Container.Bind<IEnemiesManager>().To<EnemiesManager>().AsSingle().NonLazy();

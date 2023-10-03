@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Game.Runtime.WaveSpawner.WaveCommands
 {
     [System.Serializable]
-    public abstract class WaveCommand : IUpdated
+    public abstract class WaveCommand : IUpdate
     {
 #if UNITY_EDITOR
         [SerializeField] protected string _editorName;

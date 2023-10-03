@@ -7,7 +7,7 @@ using Zenject;
 
 namespace Game.Runtime.WaveSpawner
 {
-    public class WaveSpawner : IWaveSpawner, IUpdated
+    public class WaveSpawner : IWaveSpawner, IUpdate
     {
         [Inject] private WaveSpawnerConfig _config;
         [Inject] private WavesData _wavesData;

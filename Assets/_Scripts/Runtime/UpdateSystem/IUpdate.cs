@@ -1,6 +1,6 @@
 ﻿namespace Game.Runtime.UpdateSystem
 {
-    public interface IUpdated
+    public interface IUpdate
     {
         public void Update(float deltaTime);
     }

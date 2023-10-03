@@ -2,7 +2,7 @@
 
 namespace Game.Runtime.Guns
 {
-    public interface IGun : IShoot, IUpdated
+    public interface IGun : IShoot, IUpdate
     {
         
     }

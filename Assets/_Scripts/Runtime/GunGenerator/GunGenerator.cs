@@ -2,38 +2,36 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Game.Runtime.Guns;
+using Game.Runtime.StartSystem;
 using Game.Runtime.UpdateSystem;
 using UnityEngine;
 using Zenject;
 
 namespace Game.Runtime.GunGenerator
 {
-    public class GunGenerator : IGunGenerator, IUpdated
+    public class GunGenerator : IGunGenerator, IUpdate, IStart
     {
         [Inject] private GunGeneratorConfig _config;
+        [Inject] private PlayerReference _playerRef;
         private Shooter _shooter;
         private IDisposable _updateDisposable;
+        private IDisposable _startDisposable;
 
         private float _timeToGenerate;
-        
+
         [Inject]
-        public void Construct(IUpdateSystem updateSystem, PlayerReference playerReference)
+        public void Construct(IUpdateSystem updateSystem, IStartSystem startSystem)
         {
-            PlayerBrain playerBrain = playerReference.Instance.GetComponentInChildren<PlayerBrain>();
-            if (playerBrain == null)
-            {
-                throw new Exception("PlayerBrain MonoBehaviour not found in children of player");
-            }
-
-            _shooter = playerBrain.Shooter;
             _updateDisposable = updateSystem.SubsribeToUpdate(this);
-
-            _timeToGenerate = 0f;
+            _startDisposable = startSystem.SubscribeToStart(this);
         }
         public void Deconstruct()
         {
             _updateDisposable?.Dispose();
             _updateDisposable = null;
+            
+            _startDisposable?.Dispose();
+            _startDisposable = null;
         }
 
         public void GenerateGun()
@@ -63,6 +61,18 @@ namespace Game.Runtime.GunGenerator
             }
 
             _shooter.AddGun((GunsType)possibilities[UnityEngine.Random.Range(0, possibilities.Count)]);
+        }
+        
+        public void Start()
+        {
+            PlayerBrain playerBrain = _playerRef.Instance.GetComponentInChildren<PlayerBrain>();
+            if (playerBrain == null)
+            {
+                throw new Exception("PlayerBrain MonoBehaviour not found in children of player");
+            }
+
+            _shooter = playerBrain.Shooter;
+            _timeToGenerate = 0f;
         }
 
         public void Update(float deltaTime)

@@ -6,7 +6,7 @@ namespace Game.Runtime.UpdateSystem
 {
     public class UpdateSystem : MonoBehaviour, IUpdateSystem
     {
-        private List<IUpdated> _subsribers = new ();
+        private List<IUpdate> _subsribers = new ();
 
         private void Update()
         {
@@ -17,13 +17,13 @@ namespace Game.Runtime.UpdateSystem
             }
         }
 
-        public IDisposable SubsribeToUpdate(IUpdated subscriber)
+        public IDisposable SubsribeToUpdate(IUpdate subscriber)
         {
             _subsribers.Add(subscriber);
             return new IUpdateSystem.UpdateSubscriptionDisposable(this, subscriber);
         }
 
-        public void UnsubscribeToUpdate(IUpdated subscriber)
+        public void UnsubscribeToUpdate(IUpdate subscriber)
         {
             _subsribers.Remove(subscriber);
         }

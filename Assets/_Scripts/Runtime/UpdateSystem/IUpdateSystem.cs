@@ -4,15 +4,15 @@ namespace Game.Runtime.UpdateSystem
 {
     public interface IUpdateSystem
     {
-        public IDisposable SubsribeToUpdate(IUpdated subscriber);
-        public void UnsubscribeToUpdate(IUpdated subscriber);
+        public IDisposable SubsribeToUpdate(IUpdate subscriber);
+        public void UnsubscribeToUpdate(IUpdate subscriber);
 
         public class UpdateSubscriptionDisposable : IDisposable
         {
             private IUpdateSystem _updateSystem;
-            private IUpdated _subscriber;
+            private IUpdate _subscriber;
 
-            public UpdateSubscriptionDisposable(IUpdateSystem updateSystem, IUpdated subscriber)
+            public UpdateSubscriptionDisposable(IUpdateSystem updateSystem, IUpdate subscriber)
             {
                 _updateSystem = updateSystem;
                 _subscriber = subscriber;

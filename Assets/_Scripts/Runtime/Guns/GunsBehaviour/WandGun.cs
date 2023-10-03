@@ -38,6 +38,7 @@ namespace Game.Runtime.Guns
             Projectile projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
             projectile.Rb.velocity = move;
+            projectile.HitEvent += () => _projectilePool.Release(projectile);
         }
 
         async Task ShootAction()

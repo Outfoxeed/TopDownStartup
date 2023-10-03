@@ -29,11 +29,11 @@ namespace Game.Runtime.Guns
 
         public override void Shoot()
         {
-            deg = 0;
-
             for (int i = 0; i < projectiles.Count; i++)
             {
-                projectiles[i].Rb.position = new Vector2(Mathf.Cos(2 * Mathf.PI / projectiles.Count * i), Mathf.Sin(2 * Mathf.PI / projectiles.Count * i)) * r + (Vector2)_owner.Transform.position;
+                projectiles[i].Rb.position = new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r + (Vector2)_owner.Transform.position;
+
+                projectiles[i].gameObject.SetActive(true);
             }
 
             isOn = true;
@@ -47,10 +47,7 @@ namespace Game.Runtime.Guns
             {
                 chrono = 0f;
                 isOn = true;
-
-                for (int i = 0; i < projectiles.Count; i++)
-                    projectiles[i].gameObject.SetActive(true);
-                
+                     
                 Shoot();
             }
             else if(isOn && chrono >= duration)

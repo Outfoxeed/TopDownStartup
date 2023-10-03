@@ -31,9 +31,16 @@ namespace Game.Runtime.Guns
             Projectile projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
             projectile.Rb.velocity = move;
+
+            _ = ReleaseProjectile(projectile);
+        }
+        private async Task ReleaseProjectile(Projectile p)
+        {
+            await Task.Delay(5000);
+            _projectilePool.Release(p);
         }
 
-        async Task ShootAction()
+        private async Task ShootAction()
         {
             for(int i = 0; i < bullet; i++)
             {
@@ -42,13 +49,14 @@ namespace Game.Runtime.Guns
             }
         }
 
+
         public override void Update(float deltaTime)
         {
             chrono += deltaTime;
             if (chrono >= cooldown)
             {
                 chrono = 0;
-                ShootAction();
+                _ = ShootAction();
             }
         }
     }

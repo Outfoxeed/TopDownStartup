@@ -1,3 +1,4 @@
+using Game.Runtime.Guns;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -24,19 +25,20 @@ namespace Game
             return obj.GetComponent<Projectile>();
         }
 
-        private void OnTakeFromPool(Projectile rb)
+        private void OnTakeFromPool(Projectile p)
         {
-            rb.gameObject.SetActive(true);
+            p.gameObject.SetActive(true);
         }
 
-        private void OnReturnedToPool(Projectile rb)
+        private void OnReturnedToPool(Projectile p)
         {
-            rb.gameObject.SetActive(false);
+            p.gameObject.SetActive(false);
+            p.HitEvent = null;
         }
 
-        private void OnDestroyPoolObject(Projectile rb)
+        private void OnDestroyPoolObject(Projectile p)
         {
-            GameObject.Destroy(rb.gameObject);
+            GameObject.Destroy(p.gameObject);
         }
     }
 }

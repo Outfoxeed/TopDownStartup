@@ -10,7 +10,7 @@ namespace Game
 
         private void Awake()
         {
-            pb.Shooter.AddGun(Runtime.Guns.GunsType.MagicWand);
+            pb.Shooter.AddGun(Runtime.Guns.GunsType.Knife);
         }
     }
 }

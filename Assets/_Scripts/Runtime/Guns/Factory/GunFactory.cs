@@ -17,7 +17,7 @@ namespace Game.Runtime.Guns.Factory
         {
             //TODO: PoolFactory could be injected or at least created only once
             PoolFactory poolFactory = new PoolFactory();
-            ObjectPool<Projectile> objectPool = poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType]);
+            ObjectPool<Projectile> objectPool = poolFactory.CreatePool<Projectile>(_gunSpriteDict.ProjectilePrefabDict[gunType]);
             
             return gunType switch
             {

@@ -14,7 +14,7 @@ namespace Game.Runtime.Guns
     {
         private IEnemiesManager _enemiesManager;
         [SerializeField] private float speed = 5;
-        [SerializeField] private float cooldown = 3f;
+        [SerializeField] private float cooldown = 5f;
         [SerializeField] private float delay = 0.5f;
         private int bullet = 2;
 

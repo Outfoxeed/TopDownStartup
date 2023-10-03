@@ -16,8 +16,8 @@ namespace Game.Runtime.Guns
         private int bullet = 2;
         private float deg = 0;
 
-        [SerializeField] private float delay = 3f;
-        [SerializeField] private float duration = 2f;
+        [SerializeField] private float delay = 7f;
+        [SerializeField] private float duration = 3f;
         private float chrono;
         private bool isOn;
 

@@ -26,23 +26,23 @@ namespace Game
 
         IEnumerator Shoot()
         {
-            PoolData myObjectPool = PoolManager.instance.Get(bulletPrefab);
-            while (shoot == true)
-            {
-                GameObject bullet = myObjectPool.Pool.Get().gameObject;
-                if (bullet != null)
-                {
-                    bullet.transform.position = firePoint.position;
-                    bullet.SetActive(true);
+            //PoolFactory myObjectPool = PoolManager.instance.Get(bulletPrefab);
+            //while (shoot == true)
+            //{
+            //    GameObject bullet = myObjectPool.Pool.Get().gameObject;
+            //    if (bullet != null)
+            //    {
+            //        bullet.transform.position = firePoint.position;
+            //        bullet.SetActive(true);
 
-                }                
-                Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-                rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
+            //    }                
+            //    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+            //    rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(timeBetweenBullet);
 
 
-            }
-            
+            //}
+
         }
     }
 }

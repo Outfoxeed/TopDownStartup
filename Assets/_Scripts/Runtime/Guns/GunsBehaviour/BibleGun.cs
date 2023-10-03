@@ -3,6 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Game.Runtime.Guns
 {
@@ -19,7 +20,7 @@ namespace Game.Runtime.Guns
         private float chrono;
         private bool isOn;
 
-        public BibleGun(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
+        public BibleGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool) : base(owner, updateSystem, objPool)
         {
         }
 
@@ -27,7 +28,7 @@ namespace Game.Runtime.Guns
         {
             //TEMP
             for (int i = 0; i < 4; i++)
-                projectiles.Add(_projectilePool.Pool.Get());
+                projectiles.Add(_projectilePool.Get());
 
             deg = 0;
 
@@ -55,7 +56,7 @@ namespace Game.Runtime.Guns
                 isOn = false;
                 
                 for (int i = 0;i < projectiles.Count; i++)
-                    _projectilePool.Pool.Release(projectiles[i]);
+                    _projectilePool.Release(projectiles[i]);
 
                 projectiles.Clear();
             }

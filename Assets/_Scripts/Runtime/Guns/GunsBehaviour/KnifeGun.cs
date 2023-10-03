@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Game.Runtime.Guns
 {
@@ -14,13 +15,13 @@ namespace Game.Runtime.Guns
         [SerializeField] private float delay = 3f;
         private float chrono;
 
-        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
+        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool) : base(owner, updateSystem, objPool)
         {
         }
 
         public override void Shoot()
         {
-            Rigidbody2D projectile = _projectilePool.Pool.Get();
+            Rigidbody2D projectile = _projectilePool.Get();
 
             Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
@@ -34,7 +35,7 @@ namespace Game.Runtime.Guns
         async Task Do(Rigidbody2D rb)
         {
             await Task.Delay(5000);
-            _projectilePool.Pool.Release(rb);
+            _projectilePool.Release(rb);
         }
 
         public override void Update(float deltaTime)

@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using Game.Runtime.Guns;
 using Game.Runtime.StartSystem;
-using Game.Runtime.UpdateSystem;
+using Game.Runtime.UnityCallbackSystems.StartSystem;
+using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine;
 using Zenject;
 
@@ -22,8 +23,8 @@ namespace Game.Runtime.GunGenerator
         [Inject]
         public void Construct(IUpdateSystem updateSystem, IStartSystem startSystem)
         {
-            _updateDisposable = updateSystem.SubsribeToUpdate(this);
-            _startDisposable = startSystem.SubscribeToStart(this);
+            _updateDisposable = updateSystem.Subscribe(this);
+            _startDisposable = startSystem.Subscribe(this);
         }
         public void Deconstruct()
         {

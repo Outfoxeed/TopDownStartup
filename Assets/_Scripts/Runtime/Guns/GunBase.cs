@@ -1,5 +1,5 @@
 ﻿using System;
-using Game.Runtime.UpdateSystem;
+using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine.Pool;
 using UnityEngine;
 using Zenject;
@@ -15,7 +15,7 @@ namespace Game.Runtime.Guns
         protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool)
         {
             _owner = owner;
-            _updateSubscription = updateSystem.SubsribeToUpdate(this);
+            _updateSubscription = updateSystem.Subscribe(this);
             _projectilePool = objPool;
         }
 

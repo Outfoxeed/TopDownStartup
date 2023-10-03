@@ -1,6 +1,6 @@
 ﻿using System;
 using Game.Runtime.Enemies;
-using Game.Runtime.UpdateSystem;
+using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using ScriptableObjectArchitecture;
 using UnityEngine;
 using Zenject;
@@ -28,7 +28,7 @@ namespace Game.Runtime.WaveSpawner
             _currentWave = -1;
             StartNextWave();
             
-            _updateSubscription = updateSystem.SubsribeToUpdate(this);
+            _updateSubscription = updateSystem.Subscribe(this);
         }
         public void Deconstruct()
         {

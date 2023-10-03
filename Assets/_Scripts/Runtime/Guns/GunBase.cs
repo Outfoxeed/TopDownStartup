@@ -10,9 +10,9 @@ namespace Game.Runtime.Guns
     {
         protected IDisposable _updateSubscription;
         protected IShooter _owner;
-        protected ObjectPool<Rigidbody2D> _projectilePool;
+        protected ObjectPool<Projectile> _projectilePool;
 
-        protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool)
+        protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool)
         {
             _owner = owner;
             _updateSubscription = updateSystem.Subscribe(this);

@@ -2,6 +2,7 @@
 using Game.Runtime.Enemies;
 using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine;
+using UnityEngine.Pool;
 using Zenject;
 
 namespace Game.Runtime.Guns.Factory
@@ -14,15 +15,17 @@ namespace Game.Runtime.Guns.Factory
 
         public IGun Create(IShooter owner, GunsType gunType)
         {
+            //TODO: PoolFactory could be injected or at least created only once
             PoolFactory poolFactory = new PoolFactory();
-                
+            ObjectPool<Projectile> objectPool = poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType]);
+            
             return gunType switch
             {
-                GunsType.Debug => new DebugGune(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
-                GunsType.Axes => new AxeGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
-                GunsType.Bible => new BibleGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
-                GunsType.Knife => new KnifeGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
-                GunsType.MagicWand => new WandGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType]), _enemiesManager),
+                GunsType.Debug => new DebugGune(owner, _updateSystem, objectPool),
+                GunsType.Axes => new AxeGun(owner, _updateSystem, objectPool),
+                GunsType.Bible => new BibleGun(owner, _updateSystem, objectPool),
+                GunsType.Knife => new KnifeGun(owner, _updateSystem, objectPool),
+                GunsType.MagicWand => new WandGun(owner, _updateSystem, objectPool, _enemiesManager),
                 _ => throw new InvalidEnumArgumentException()
             };
         }

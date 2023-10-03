@@ -6,7 +6,7 @@ using UnityEngine.Pool;
 
 namespace Game
 {
-    public class PoolFactory
+    public class PoolFactory : IPoolFactory
     {
         private int amountToPool = 10;
         private int maxCapacity = 20;

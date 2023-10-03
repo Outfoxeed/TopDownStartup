@@ -21,15 +21,13 @@ namespace Game.Runtime.Guns
 
         public override void Shoot()
         {
-            Debug.Log("Axe Shoot");
-
             float radian = UnityEngine.Random.Range(0, Mathf.PI);
             Vector2 dir = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized;
             Vector2 move = dir * speed;
 
             Rigidbody2D projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
-            projectile.velocity += move;
+            projectile.velocity = move;
 
             Do(projectile);
         }
@@ -42,8 +40,6 @@ namespace Game.Runtime.Guns
 
         public override void Update(float deltaTime)
         {
-            Debug.Log("Axe Update");
-
             chrono += deltaTime;
             if (chrono >= delay)
             {

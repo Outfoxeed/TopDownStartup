@@ -1,27 +1,35 @@
+using Codice.CM.Common;
+using Game.Runtime.Enemies;
 using Game.Runtime.UpdateSystem;
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
 using UnityEngine.Pool;
+using Zenject;
 
 namespace Game.Runtime.Guns
 {
-    [Serializable]
-    public class KnifeGun : GunBase
+    public class WandGun : GunBase
     {
+        private IEnemiesManager _enemiesManager;
         [SerializeField] private float speed = 5;
         [SerializeField] private float delay = 3f;
         private float chrono;
 
-        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool) : base(owner, updateSystem, objPool)
+        public WandGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool, IEnemiesManager enemiesManager) : base(owner, updateSystem, objPool)
         {
+            _enemiesManager = enemiesManager;
         }
 
         public override void Shoot()
         {
-            Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)_owner.Transform.position).normalized;
+            AIBrain enemyBrain = _enemiesManager.GetClosestEnemy(_owner.Transform.position);
+
+            if (enemyBrain == null)
+                return;
+
+            Vector2 dir = ((Vector2)enemyBrain.Transform.position - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
 
             Rigidbody2D projectile = _projectilePool.Get();
@@ -40,7 +48,7 @@ namespace Game.Runtime.Guns
         public override void Update(float deltaTime)
         {
             chrono += deltaTime;
-            if(chrono >= delay)
+            if (chrono >= delay)
             {
                 chrono = 0;
                 Shoot();

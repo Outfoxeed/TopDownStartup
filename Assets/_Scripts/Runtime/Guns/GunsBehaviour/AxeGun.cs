@@ -12,7 +12,7 @@ namespace Game.Runtime.Guns
     public class AxeGun : GunBase
     {
         private float speed = 10;
-        private float cooldown = 3f;
+        private float cooldown = 6f;
         private float delay = 0.5f;
         private int bullet = 2;
 
@@ -33,6 +33,7 @@ namespace Game.Runtime.Guns
             projectile.Disabled.Clear();
             projectile.Disabled.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
+            projectile.gameObject.SetActive(true);
             projectile.Rb.velocity = move;
         }
 

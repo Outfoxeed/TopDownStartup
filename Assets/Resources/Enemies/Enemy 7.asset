@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d994bbdb79504a4d809a9d9f9b0d5b95, type: 3}
-  m_Name: EnemyA
+  m_Name: Enemy 7
   m_EditorClassIdentifier: 
-  <MaxHealth>k__BackingField: 10
-  <MoveSpeed>k__BackingField: 30000
-  <Sprite>k__BackingField: {fileID: 6352683301991889936, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  <MaxHealth>k__BackingField: 15
+  <MoveSpeed>k__BackingField: 0.5
+  <Sprite>k__BackingField: {fileID: 839096817, guid: 0eeec3b0dfab16940a648c654ebaa5c6, type: 3}

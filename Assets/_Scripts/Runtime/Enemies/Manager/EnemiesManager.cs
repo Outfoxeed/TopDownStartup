@@ -33,6 +33,7 @@ namespace Game.Runtime.Enemies
         public AIBrain GetEnemyInstance()
         {
             AIBrain enemyInstance = _enemiesPool.Get();
+            enemyInstance.gameObject.SetActive(true);
             _enemies.Add(enemyInstance);
             enemyInstance.Disabled.Clear();
             enemyInstance.Disabled.AddListener(() =>

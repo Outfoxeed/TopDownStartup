@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel;
+using Game.Runtime.Enemies;
 using Game.Runtime.UpdateSystem;
 using UnityEngine;
 using Zenject;
@@ -9,6 +10,7 @@ namespace Game.Runtime.Guns.Factory
     {
         [Inject] private IUpdateSystem _updateSystem;
         [Inject] private GunProjectileDict _gunSpriteDict;
+        [Inject] private IEnemiesManager _enemiesManager;
 
         public IGun Create(IShooter owner, GunsType gunType)
         {
@@ -20,7 +22,7 @@ namespace Game.Runtime.Guns.Factory
                 GunsType.Axes => new AxeGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
                 GunsType.Bible => new BibleGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
                 GunsType.Knife => new KnifeGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
-                GunsType.MagicWand => new DebugGune(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType])),
+                GunsType.MagicWand => new WandGun(owner, _updateSystem, poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType]), _enemiesManager),
                 _ => throw new InvalidEnumArgumentException()
             };
         }

@@ -23,6 +23,8 @@ namespace Game.Runtime.Enemies
 
         public AIBrain GetClosestEnemy(Vector2 worldPosition)
         {
+            if(_enemies.Count == 0) return null;
+
             return _enemies.OrderBy(GetSquaredDistance).First();
 
             float GetSquaredDistance(IEnemy enemy)

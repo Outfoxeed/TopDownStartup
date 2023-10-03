@@ -21,13 +21,12 @@ namespace Game.Runtime.Guns
 
         public override void Shoot()
         {
-            Rigidbody2D projectile = _projectilePool.Get();
-
             Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
 
+            Rigidbody2D projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
-            projectile.velocity += move;
+            projectile.velocity = move;
 
             Do(projectile);
         }

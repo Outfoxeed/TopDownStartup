@@ -18,7 +18,7 @@ namespace Game.Runtime.Guns
 
         private float chrono;
 
-        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool) : base(owner, updateSystem, objPool)
+        public KnifeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool) : base(owner, updateSystem, objPool)
         {
         }
 
@@ -27,11 +27,11 @@ namespace Game.Runtime.Guns
             Vector2 dir = ((Vector2)Camera.main.ScreenToWorldPoint(Input.mousePosition) - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
 
-            Rigidbody2D projectile = _projectilePool.Get();
+            Projectile projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
-            projectile.velocity = move;
+            projectile.Rb.velocity = move;
         }
-
+        
         async Task ShootAction()
         {
             for (int i = 0; i < bullet; i++)

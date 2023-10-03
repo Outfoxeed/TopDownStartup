@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game
@@ -12,25 +10,38 @@ namespace Game
 
         public int Damage { get => damage; set => damage = value; }
 
+        public Rigidbody2D Rb => rb;
         [SerializeField]private Rigidbody2D rb;
+        
         private void OnTriggerEnter2D(Collider2D collision)
         {
-            IHealth health = collision.GetComponent<IHealth>();
-            if (health != null)
+            if (collision.attachedRigidbody.gameObject == _player.Instance.gameObject)
             {
-                if (((IHealth)_player.Instance.Health) != health)
-                {
-                    health.TakeDamage(damage);
-                    gameObject.SetActive(false);
-
-                }
-
+                return;
             }
 
-        }
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-
+            if (!collision.TryGetComponent(out IHealth health))
+            {
+                return;
+            }
+            
+            // if (!collision.TryGetComponent(out IHealth health))
+            // {
+            //     if (!collision.TryGetComponent(out IHealthProxy healthProxy))
+            //     {
+            //         // No health or health proxy not found
+            //         return;
+            //     }
+            //     health = healthProxy.Health;
+            // }
+            //
+            // // Health is not null
+            // if (_player.Instance.Health == health)
+            // {
+            //     return;
+            // }
+            
+            health.TakeDamage(damage);
             gameObject.SetActive(false);
         }
     }

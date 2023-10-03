@@ -1,6 +1,7 @@
 using UnityEngine;
+using Game.Runtime.MusketeerEvents;
 
-namespace Game
+namespace Game.Runtime.Guns
 {
     public class Projectile : MonoBehaviour
     {
@@ -10,7 +11,12 @@ namespace Game
 
         public int Damage { get => damage; set => damage = value; }
 
+        private MusketeerEvent hitEvent;
+        public MusketeerEvent HitEvent { get => hitEvent; set => hitEvent = value; }
+
         public Rigidbody2D Rb => rb;
+
+
         [SerializeField]private Rigidbody2D rb;
         
         private void OnTriggerEnter2D(Collider2D collision)
@@ -25,24 +31,9 @@ namespace Game
                 return;
             }
             
-            // if (!collision.TryGetComponent(out IHealth health))
-            // {
-            //     if (!collision.TryGetComponent(out IHealthProxy healthProxy))
-            //     {
-            //         // No health or health proxy not found
-            //         return;
-            //     }
-            //     health = healthProxy.Health;
-            // }
-            //
-            // // Health is not null
-            // if (_player.Instance.Health == health)
-            // {
-            //     return;
-            // }
-            
             health.TakeDamage(damage);
-            gameObject.SetActive(false);
+
+            hitEvent.Invoke();
         }
     }
 }

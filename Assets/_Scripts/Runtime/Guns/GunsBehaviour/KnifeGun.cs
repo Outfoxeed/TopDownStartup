@@ -28,6 +28,7 @@ namespace Game.Runtime.Guns
             Vector2 move = dir * speed;
 
             Projectile projectile = _projectilePool.Get();
+            projectile.HitEvent.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
             projectile.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, dir) - 45);
             projectile.Rb.velocity = move;
@@ -48,7 +49,7 @@ namespace Game.Runtime.Guns
             if(chrono >= cooldown)
             {
                 chrono = 0;
-                ShootAction();
+                _ = ShootAction();
             }
         }
     }

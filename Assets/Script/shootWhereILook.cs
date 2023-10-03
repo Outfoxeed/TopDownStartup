@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Game
 {
@@ -14,34 +15,37 @@ namespace Game
 
         [SerializeField] private float timeBetweenBullet = 1f;
 
+        ObjectPool<Projectile> bla;
+
         bool shoot = false;
 
 
         private void Start()
         {
             shoot = true;
-
+            PoolFactory myObjectPool = new PoolFactory();
+            bla = myObjectPool.CreatePool(bulletPrefab);
             StartCoroutine(Shoot());
         }
 
         IEnumerator Shoot()
         {
-            //PoolFactory myObjectPool = PoolManager.instance.Get(bulletPrefab);
-            //while (shoot == true)
-            //{
-            //    GameObject bullet = myObjectPool.Pool.Get().gameObject;
-            //    if (bullet != null)
-            //    {
-            //        bullet.transform.position = firePoint.position;
-            //        bullet.SetActive(true);
+            
+            while (shoot == true)
+            {
+                GameObject bullet = bla.Get().gameObject;
+                if (bullet != null)
+                {
+                    bullet.transform.position = firePoint.position;
+                    bullet.SetActive(true);
 
-            //    }                
-            //    Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
-            //    rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
+                }                
+               Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+                rb.AddForce(firePoint.up * bulletforce, ForceMode2D.Impulse);
                 yield return new WaitForSeconds(timeBetweenBullet);
 
 
-            //}
+            }
 
         }
     }

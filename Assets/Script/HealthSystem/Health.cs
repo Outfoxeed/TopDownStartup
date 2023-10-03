@@ -2,11 +2,16 @@ using System;
 using Game.Runtime.HealthSystem;
 using Game.Runtime.MusketeerEvents;
 using NaughtyAttributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class Health : MonoBehaviour, IHealthComponent, IHealth
 {
+    [SerializeField] GameObject floatingPoint;
+
+
+
     [field: SerializeField] public int MaxHealth { get; private set; }
 
     [field: SerializeField, ReadOnly]
@@ -22,6 +27,7 @@ public class Health : MonoBehaviour, IHealthComponent, IHealth
         CurrentHealth = MaxHealth;
     }
 
+
     public float GetHealthPercentage() => CurrentHealth / (float)MaxHealth;
 
     public void TakeDamage(int amount)
@@ -33,10 +39,13 @@ public class Health : MonoBehaviour, IHealthComponent, IHealth
         if (IsDead)
         {
             InternalDie();
+            
         }
         else
         {
             Damaged?.Invoke(amount);
+            GameObject points = Instantiate(floatingPoint, transform.position, Quaternion.identity) as GameObject;
+            points.transform.GetChild(0).GetComponent<TextMeshPro>().text = amount.ToString();
         }
     }
 

@@ -36,9 +36,9 @@ namespace Game.Runtime.Guns
             Vector2 move = dir * speed;
 
             Projectile projectile = _projectilePool.Get();
-            projectile.HitEvent.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
             projectile.Rb.velocity = move;
+            projectile.HitEvent += () => _projectilePool.Release(projectile);
         }
 
         async Task ShootAction()
@@ -56,7 +56,7 @@ namespace Game.Runtime.Guns
             if (chrono >= cooldown)
             {
                 chrono = 0;
-                _ = ShootAction();
+                ShootAction();
             }
         }
     }

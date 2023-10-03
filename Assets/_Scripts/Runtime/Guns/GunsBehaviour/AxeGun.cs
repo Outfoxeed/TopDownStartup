@@ -34,6 +34,11 @@ namespace Game.Runtime.Guns
 
             _ = ReleaseProjectile(projectile);
         }
+        private async Task ReleaseProjectile(Projectile p)
+        {
+            await Task.Delay(5000);
+            _projectilePool.Release(p);
+        }
 
         private async Task ShootAction()
         {
@@ -44,11 +49,6 @@ namespace Game.Runtime.Guns
             }
         }
 
-        private async Task ReleaseProjectile(Projectile p)
-        {
-            await Task.Delay(5000);
-            _projectilePool.Release(p);
-        }
 
         public override void Update(float deltaTime)
         {

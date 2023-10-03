@@ -32,8 +32,8 @@ namespace Game
 
         private void OnReturnedToPool(Projectile p)
         {
-            p.HitEvent.RemoveAllListener();
             p.gameObject.SetActive(false);
+            p.HitEvent = null;
         }
 
         private void OnDestroyPoolObject(Projectile p)

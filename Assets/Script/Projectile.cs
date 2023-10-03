@@ -1,5 +1,6 @@
 using UnityEngine;
 using Game.Runtime.MusketeerEvents;
+using System;
 
 namespace Game.Runtime.Guns
 {
@@ -11,8 +12,8 @@ namespace Game.Runtime.Guns
 
         public int Damage { get => damage; set => damage = value; }
 
-        private MusketeerEvent hitEvent;
-        public MusketeerEvent HitEvent { get => hitEvent; set => hitEvent = value; }
+        private Action hitEvent;
+        public Action HitEvent { get => hitEvent; set => hitEvent = value; }
 
         public Rigidbody2D Rb => rb;
 

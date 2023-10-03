@@ -12,12 +12,12 @@ namespace Game.Runtime.Guns.Factory
         [Inject] private IUpdateSystem _updateSystem;
         [Inject] private GunProjectileDict _gunSpriteDict;
         [Inject] private IEnemiesManager _enemiesManager;
+        [Inject] private IPoolFactory _poolFactory;
 
         public IGun Create(IShooter owner, GunsType gunType)
         {
             //TODO: PoolFactory could be injected or at least created only once
-            PoolFactory poolFactory = new PoolFactory();
-            ObjectPool<Projectile> objectPool = poolFactory.CreatePool(_gunSpriteDict.ProjectilePrefabDict[gunType]);
+            ObjectPool<Projectile> objectPool = _poolFactory.CreatePool<Projectile>(_gunSpriteDict.ProjectilePrefabDict[gunType]);
             
             return gunType switch
             {

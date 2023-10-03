@@ -11,7 +11,7 @@ namespace Game.Runtime.Guns
     [Serializable]
     public class KnifeGun : GunBase
     {
-        [SerializeField] private float speed = 5;
+        [SerializeField] private float speed = 10;
         [SerializeField] private float cooldown = 3f;
         [SerializeField] private float delay = 0.5f;
         private int bullet = 2;
@@ -28,7 +28,11 @@ namespace Game.Runtime.Guns
             Vector2 move = dir * speed;
 
             Projectile projectile = _projectilePool.Get();
+            projectile.Disabled.Clear();
+            projectile.Disabled.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
+            projectile.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, dir) - 45);
+            projectile.gameObject.SetActive(true);
             projectile.Rb.velocity = move;
         }
         
@@ -47,7 +51,7 @@ namespace Game.Runtime.Guns
             if(chrono >= cooldown)
             {
                 chrono = 0;
-                ShootAction();
+                _ = ShootAction();
             }
         }
     }

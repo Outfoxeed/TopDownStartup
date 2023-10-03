@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Game.Runtime.Guns;
 using UnityEngine;
 using UnityEngine.Pool;
+using Zenject;
 
 namespace Game
 {
@@ -24,7 +26,7 @@ namespace Game
         {
             shoot = true;
             PoolFactory myObjectPool = new PoolFactory();
-            bla = myObjectPool.CreatePool(bulletPrefab);
+            bla = myObjectPool.CreatePool<Projectile>(bulletPrefab);
             StartCoroutine(Shoot());
         }
 

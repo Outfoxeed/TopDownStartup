@@ -16,24 +16,24 @@ namespace Game.Runtime.Guns
         private int bullet = 2;
         private float deg = 0;
 
-        [SerializeField] private float delay = 3f;
-        [SerializeField] private float duration = 2f;
+        [SerializeField] private float delay = 7f;
+        [SerializeField] private float duration = 3f;
         private float chrono;
         private bool isOn;
 
         public BibleGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool) : base(owner, updateSystem, objPool)
         {
             for (int i = 0; i < bullet; i++)
-                projectiles.Add(_projectilePool.Get());
+                projectiles.Add(_projectilePool.Get().SetLifeDuration(float.MaxValue));
         }
 
         public override void Shoot()
         {
-            deg = 0;
-
             for (int i = 0; i < projectiles.Count; i++)
             {
-                projectiles[i].Rb.position = new Vector2(Mathf.Cos(2 * Mathf.PI / projectiles.Count * i), Mathf.Sin(2 * Mathf.PI / projectiles.Count * i)) * r + (Vector2)_owner.Transform.position;
+                projectiles[i].Rb.position = new Vector2(Mathf.Cos(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad), Mathf.Sin(deg + 360 / projectiles.Count * i * Mathf.Deg2Rad)) * r + (Vector2)_owner.Transform.position;
+
+                projectiles[i].gameObject.SetActive(true);
             }
 
             isOn = true;
@@ -47,10 +47,7 @@ namespace Game.Runtime.Guns
             {
                 chrono = 0f;
                 isOn = true;
-
-                for (int i = 0; i < projectiles.Count; i++)
-                    projectiles[i].gameObject.SetActive(true);
-                
+                     
                 Shoot();
             }
             else if(isOn && chrono >= duration)

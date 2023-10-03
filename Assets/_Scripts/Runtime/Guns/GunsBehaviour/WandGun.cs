@@ -14,7 +14,7 @@ namespace Game.Runtime.Guns
     {
         private IEnemiesManager _enemiesManager;
         [SerializeField] private float speed = 5;
-        [SerializeField] private float cooldown = 3f;
+        [SerializeField] private float cooldown = 5f;
         [SerializeField] private float delay = 0.5f;
         private int bullet = 2;
 
@@ -36,7 +36,10 @@ namespace Game.Runtime.Guns
             Vector2 move = dir * speed;
 
             Projectile projectile = _projectilePool.Get();
+            projectile.Disabled.Clear();
+            projectile.Disabled.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
+            projectile.gameObject.SetActive(true);
             projectile.Rb.velocity = move;
         }
 

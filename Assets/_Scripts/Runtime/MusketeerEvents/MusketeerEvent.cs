@@ -26,6 +26,8 @@ namespace Game.Runtime.MusketeerEvents
         {
             _action -= action;
         }
+
+        public void Clear() => _action = null;
         
         public static MusketeerEvent operator +(MusketeerEvent a, Action b)
         {

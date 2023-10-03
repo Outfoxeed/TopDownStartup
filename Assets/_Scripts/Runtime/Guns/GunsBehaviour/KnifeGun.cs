@@ -29,6 +29,7 @@ namespace Game.Runtime.Guns
 
             Rigidbody2D projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
+            projectile.transform.eulerAngles = new Vector3(0, 0, Vector2.SignedAngle(Vector2.right, dir) - 45);
             projectile.velocity = move;
         }
 

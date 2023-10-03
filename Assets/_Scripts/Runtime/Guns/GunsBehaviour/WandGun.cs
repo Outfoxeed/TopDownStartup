@@ -20,7 +20,7 @@ namespace Game.Runtime.Guns
 
         private float chrono;
 
-        public WandGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool, IEnemiesManager enemiesManager) : base(owner, updateSystem, objPool)
+        public WandGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool, IEnemiesManager enemiesManager) : base(owner, updateSystem, objPool)
         {
             _enemiesManager = enemiesManager;
         }
@@ -35,9 +35,9 @@ namespace Game.Runtime.Guns
             Vector2 dir = ((Vector2)enemyBrain.Transform.position - (Vector2)_owner.Transform.position).normalized;
             Vector2 move = dir * speed;
 
-            Rigidbody2D projectile = _projectilePool.Get();
+            Projectile projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
-            projectile.velocity = move;
+            projectile.Rb.velocity = move;
         }
 
         async Task ShootAction()

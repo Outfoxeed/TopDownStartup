@@ -15,12 +15,12 @@ MonoBehaviour:
   projectilePrefabDict:
     _serializedList:
     - Key: 2
-      Value: {fileID: 6327449505603284136, guid: 9b1e5fb49af4e59468eeec2d48b4f08f, type: 3}
+      Value: {fileID: 7578516046924870135, guid: 15d1954b0b96703408075bf18438e798, type: 3}
     - Key: 1
-      Value: {fileID: 5632576374890545000, guid: cf5d81aaf437fae4f9164f596bf604de, type: 3}
+      Value: {fileID: 6355712797967856759, guid: 87fcd87df983dbc40a0f5a4b70acd60e, type: 3}
     - Key: 3
-      Value: {fileID: 2093354176608504019, guid: 16cfa2b0170fa4643b054a48dc26c321, type: 3}
+      Value: {fileID: 229448580195408190, guid: 09cf59e876be10a4d87b3505ef077d80, type: 3}
     - Key: 0
-      Value: {fileID: 8689800263330030728, guid: fa0c33d4769cdcb4aa1a66d798488053, type: 3}
+      Value: {fileID: 8722607024006930768, guid: dfbbf335693fd6e478a0cedeb4b7224a, type: 3}
     - Key: -2147483648
-      Value: {fileID: 8689800263330030728, guid: fa0c33d4769cdcb4aa1a66d798488053, type: 3}
+      Value: {fileID: 8722607024006930768, guid: dfbbf335693fd6e478a0cedeb4b7224a, type: 3}

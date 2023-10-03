@@ -5,24 +5,19 @@ using UnityEngine.Pool;
 
 namespace Game
 {
-    public class PoolData : MonoBehaviour
+    public class PoolFactory
     {
-        private ObjectPool<Rigidbody2D> m_Pool;
-        private GameObject bulletPrefab;
         private int amountToPool = 10;
         private int maxCapacity = 20;
-        public ObjectPool<Rigidbody2D> Pool => m_Pool;
 
-        public void SetPrefab(GameObject prefab)
+        public ObjectPool<Rigidbody2D> CreatePool(GameObject prefab)
         {
-            bulletPrefab = prefab;
-
-            m_Pool = new ObjectPool<Rigidbody2D>(CreatePooledItem, OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
+            return new ObjectPool<Rigidbody2D>(() => CreatePooledItem(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
         }
 
-        private Rigidbody2D CreatePooledItem()
+        private Rigidbody2D CreatePooledItem(GameObject prefab)
         {
-            GameObject obj = Instantiate(bulletPrefab);
+            GameObject obj = GameObject.Instantiate(prefab);
             obj.SetActive(false);
 
             return obj.GetComponent<Rigidbody2D>();
@@ -40,7 +35,7 @@ namespace Game
 
         private void OnDestroyPoolObject(Rigidbody2D rb)
         {
-            Destroy(rb.gameObject);
+            GameObject.Destroy(rb.gameObject);
         }
     }
 }

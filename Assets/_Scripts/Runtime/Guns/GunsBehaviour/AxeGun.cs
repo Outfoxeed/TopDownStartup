@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.Pool;
 
 namespace Game.Runtime.Guns
 {
@@ -14,7 +15,7 @@ namespace Game.Runtime.Guns
         [SerializeField] private float delay = 3f;
         private float chrono;
 
-        public AxeGun(IShooter owner, IUpdateSystem updateSystem, PoolData objPool) : base(owner, updateSystem, objPool)
+        public AxeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool) : base(owner, updateSystem, objPool)
         {
         }
 
@@ -26,7 +27,7 @@ namespace Game.Runtime.Guns
             Vector2 dir = new Vector2(Mathf.Cos(radian), Mathf.Sin(radian)).normalized;
             Vector2 move = dir * speed;
 
-            Rigidbody2D projectile = _projectilePool.Pool.Get();
+            Rigidbody2D projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
             projectile.velocity += move;
 
@@ -36,7 +37,7 @@ namespace Game.Runtime.Guns
         async Task Do(Rigidbody2D rb)
         {
             await Task.Delay(5000);
-            _projectilePool.Pool.Release(rb);
+            _projectilePool.Release(rb);
         }
 
         public override void Update(float deltaTime)

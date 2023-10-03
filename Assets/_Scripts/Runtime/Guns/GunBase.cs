@@ -1,5 +1,7 @@
 ﻿using System;
 using Game.Runtime.UpdateSystem;
+using UnityEngine.Pool;
+using UnityEngine;
 using Zenject;
 
 namespace Game.Runtime.Guns
@@ -8,9 +10,9 @@ namespace Game.Runtime.Guns
     {
         protected IDisposable _updateSubscription;
         protected IShooter _owner;
-        protected PoolData _projectilePool;
+        protected ObjectPool<Rigidbody2D> _projectilePool;
 
-        protected GunBase(IShooter owner, IUpdateSystem updateSystem, PoolData objPool)
+        protected GunBase(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool)
         {
             _owner = owner;
             _updateSubscription = updateSystem.SubsribeToUpdate(this);

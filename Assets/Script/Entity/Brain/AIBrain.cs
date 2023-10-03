@@ -1,9 +1,11 @@
+using System;
 using NaughtyAttributes;
 using System.Collections;
 using System.Collections.Generic;
 using Game.Runtime.Enemies;
 using Game.Runtime.Entities;
 using Game.Runtime.HealthSystem;
+using Game.Runtime.MusketeerEvents;
 using UnityEngine;
 
 public class AIBrain : MonoBehaviour, IEnemy
@@ -16,6 +18,9 @@ public class AIBrain : MonoBehaviour, IEnemy
 
     [SerializeField, BoxGroup("Conf")] float _distanceDetection;
     [SerializeField, BoxGroup("Conf")] float _stopDistance;
+    
+    [field: Header("Events"), SerializeField]
+    public MusketeerEvent Disabled { get; private set; }
 
     bool IsPlayerNear => Vector3.Distance(_root.transform.position, _playerEntity.Instance.transform.position) < _distanceDetection;
     bool IsPlayerTooNear => Vector3.Distance(_root.transform.position, _playerEntity.Instance.transform.position) < _stopDistance;
@@ -59,6 +64,11 @@ public class AIBrain : MonoBehaviour, IEnemy
         {
             _movement.Move(Vector2.zero);
         }
+    }
+
+    private void OnDisable()
+    {
+        Disabled.Invoke();
     }
 
 

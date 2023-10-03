@@ -1,24 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Pool;
 using Zenject;
 
 namespace Game.Runtime.Enemies
 {
     public class EnemiesManager : IEnemiesManager
     {
-        // TODO: Pools Manager
-        
-        private AIBrain _prefab;
+        private IObjectPool<AIBrain> _enemiesPool;
         private List<AIBrain> _enemies = new(); 
         
-        //TODO: remove
-        [Inject] public PlayerReference PlayerRef;
-
         [Inject]
-        public void Construct(AIBrain prefab)
+        public void Construct(AIBrain prefab, IPoolFactory poolFactory)
         {
-            _prefab = prefab;
+            _enemiesPool = poolFactory.CreatePool<AIBrain>(prefab.gameObject);
         }
 
         public AIBrain GetClosestEnemy(Vector2 worldPosition)
@@ -36,18 +32,23 @@ namespace Game.Runtime.Enemies
 
         public AIBrain GetEnemyInstance()
         {
-            AIBrain newInstance = Object.Instantiate(_prefab);
-            _enemies.Add(newInstance);
-            return newInstance;
+            AIBrain enemyInstance = _enemiesPool.Get();
+            _enemies.Add(enemyInstance);
+            enemyInstance.Disabled.Clear();
+            enemyInstance.Disabled.AddListener(() =>
+            {
+                _enemiesPool.Release(enemyInstance);
+                _enemies.Remove(enemyInstance);
+            });
+            return enemyInstance;
         }
 
         public void RemoveAllEnemies()
         {
             for (var i = 0; i < _enemies.Count; i++)
             {
-                Object.Destroy(_enemies[i].gameObject);
+                _enemies[i].gameObject.SetActive(false);
             }
-
             _enemies.Clear();
         }
     }

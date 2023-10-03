@@ -22,7 +22,7 @@ namespace Game
             //Container.Bind<Patate>().AsSingle().NonLazy();
             Container.Bind(typeof(IUpdateSystem), typeof(IStartSystem)).FromComponentInNewPrefab(_unityCallbackSystemsPrefab).AsSingle().NonLazy();
 
-            //Container.Bind<PoolManager>().FromComponentInNewPrefab(_poolManagerPrefab).AsSingle().NonLazy();
+            Container.Bind<IPoolFactory>().To<PoolFactory>().AsSingle().NonLazy();
         }
     }
 }

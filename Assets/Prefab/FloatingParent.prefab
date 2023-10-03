@@ -238,6 +238,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463c0cbcee93efd4f8ebc737fbf00e4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <Disabled>k__BackingField:
+    _unityEvent:
+      m_PersistentCalls:
+        m_Calls: []
+  _offset: {x: 0, y: 0.5}
+  _lifeDuration: 1
+  _text: {fileID: 8297490739636281362}
 --- !u!1001 &1073839898403766115
 PrefabInstance:
   m_ObjectHideFlags: 0

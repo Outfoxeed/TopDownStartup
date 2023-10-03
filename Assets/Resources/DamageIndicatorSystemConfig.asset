@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b68ef1bbee446fb9e0879267e4eaa2, type: 3}
-  m_Name: GunGeneratorConfig
+  m_Script: {fileID: 11500000, guid: 3634788bdc80406888c5de342a8b1043, type: 3}
+  m_Name: DamageIndicatorSystemConfig
   m_EditorClassIdentifier: 
-  <GunGenerationCooldown>k__BackingField: 5
+  Prefab: {fileID: -8400205108319272896, guid: 36788f75b2cc2b241881563ea0e7872b, type: 3}

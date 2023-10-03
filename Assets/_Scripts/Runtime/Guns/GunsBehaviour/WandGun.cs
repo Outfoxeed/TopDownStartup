@@ -39,6 +39,7 @@ namespace Game.Runtime.Guns
             projectile.Disabled.Clear();
             projectile.Disabled.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
+            projectile.gameObject.SetActive(true);
             projectile.Rb.velocity = move;
         }
 

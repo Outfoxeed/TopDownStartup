@@ -26,7 +26,6 @@ namespace Game
 
         private void OnTakeFromPool<T>(T poolItem) where T : Component
         {
-            poolItem.gameObject.SetActive(true);
         }
 
         private void OnReturnedToPool<T>(T poolItem) where T : Component

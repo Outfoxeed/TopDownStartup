@@ -14,7 +14,10 @@ namespace Game.Runtime.Guns
     {
         private IEnemiesManager _enemiesManager;
         [SerializeField] private float speed = 5;
-        [SerializeField] private float delay = 3f;
+        [SerializeField] private float cooldown = 3f;
+        [SerializeField] private float delay = 0.5f;
+        private int bullet = 2;
+
         private float chrono;
 
         public WandGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Rigidbody2D> objPool, IEnemiesManager enemiesManager) : base(owner, updateSystem, objPool)
@@ -35,23 +38,24 @@ namespace Game.Runtime.Guns
             Rigidbody2D projectile = _projectilePool.Get();
             projectile.transform.position = _owner.Transform.position;
             projectile.velocity = move;
-
-            Do(projectile);
         }
 
-        async Task Do(Rigidbody2D rb)
+        async Task ShootAction()
         {
-            await Task.Delay(5000);
-            _projectilePool.Release(rb);
+            for (int i = 0; i < bullet; i++)
+            {
+                Shoot();
+                await Task.Delay(((int)(delay * 10)) * 100);
+            }
         }
 
         public override void Update(float deltaTime)
         {
             chrono += deltaTime;
-            if (chrono >= delay)
+            if (chrono >= cooldown)
             {
                 chrono = 0;
-                Shoot();
+                ShootAction();
             }
         }
     }

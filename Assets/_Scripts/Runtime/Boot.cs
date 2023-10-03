@@ -20,11 +20,31 @@ namespace Game._Scripts.Runtime
             SceneManager.LoadScene(UI_SCENE, LoadSceneMode.Additive);
         }
 
-        public void UnloadAllScenes()
+        public void UnloadAll()
         {
-            UnloadAllScenesAsync();
+            UnloadAllAsync();
         }
-        private async Task UnloadAllScenesAsync()
+        private async Task UnloadAllAsync()
+        {
+            await UnloadScenesAsync();
+            DestroyAllGameObjects();
+        }
+
+        private void DestroyAllGameObjects()
+        {
+            GameObject[] sceneGameObjects = FindObjectsOfType<GameObject>(true);
+            foreach (GameObject sceneGameObject in sceneGameObjects)
+            {
+                if (sceneGameObject == gameObject)
+                {
+                    continue;
+                }
+                
+                Destroy(sceneGameObject);
+            }
+        }
+
+        private async Task UnloadScenesAsync()
         {
             for (int i = 0; i < SceneManager.sceneCount; i++)
             {
@@ -33,7 +53,7 @@ namespace Game._Scripts.Runtime
                 {
                     continue;
                 }
-                
+
                 await WaitSceneUnload(scene);
                 i--;
             }
@@ -60,7 +80,7 @@ namespace Game._Scripts.Runtime
         }
         private async Task ReloadScenesAsync()
         {
-            await UnloadAllScenesAsync();
+            await UnloadAllAsync();
             LoadScenes();
         }
 

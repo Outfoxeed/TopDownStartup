@@ -11,34 +11,32 @@ namespace Game
         private int amountToPool = 10;
         private int maxCapacity = 20;
 
-        // TODO: Do generic stuff here (dirty RigidBody2D hardcoded)
-        public ObjectPool<Projectile> CreatePool(GameObject prefab)
+        public ObjectPool<T> CreatePool<T>(GameObject prefab) where T : Component
         {
-            return new ObjectPool<Projectile>(() => CreatePooledItem(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
+            return new ObjectPool<T>(() => CreatePooledItem<T>(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
         }
 
-        private Projectile CreatePooledItem(GameObject prefab)
+        private T CreatePooledItem<T>(GameObject prefab) where T : Component
         {
             GameObject obj = GameObject.Instantiate(prefab);
             obj.SetActive(false);
 
-            return obj.GetComponent<Projectile>();
+            return obj.GetComponent<T>();
         }
 
-        private void OnTakeFromPool(Projectile p)
+        private void OnTakeFromPool<T>(T poolItem) where T : Component
         {
-            p.gameObject.SetActive(true);
+            poolItem.gameObject.SetActive(true);
         }
 
-        private void OnReturnedToPool(Projectile p)
+        private void OnReturnedToPool<T>(T poolItem) where T : Component
         {
-            p.gameObject.SetActive(false);
-            p.Disabled.Clear();
+            poolItem.gameObject.SetActive(false);
         }
 
-        private void OnDestroyPoolObject(Projectile p)
+        private void OnDestroyPoolObject<T>(T poolItem) where T : Component
         {
-            GameObject.Destroy(p.gameObject);
+            GameObject.Destroy(poolItem.gameObject);
         }
     }
 }

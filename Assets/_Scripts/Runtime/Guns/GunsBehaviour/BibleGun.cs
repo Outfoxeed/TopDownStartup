@@ -24,7 +24,7 @@ namespace Game.Runtime.Guns
         public BibleGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool) : base(owner, updateSystem, objPool)
         {
             for (int i = 0; i < bullet; i++)
-                projectiles.Add(_projectilePool.Get());
+                projectiles.Add(_projectilePool.Get().SetLifeDuration(float.MaxValue));
         }
 
         public override void Shoot()

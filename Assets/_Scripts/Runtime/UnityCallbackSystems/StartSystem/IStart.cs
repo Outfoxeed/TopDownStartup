@@ -1,4 +1,4 @@
-namespace Game.Runtime.StartSystem
+namespace Game.Runtime.UnityCallbackSystems.StartSystem
 {
     public interface IStart
     {

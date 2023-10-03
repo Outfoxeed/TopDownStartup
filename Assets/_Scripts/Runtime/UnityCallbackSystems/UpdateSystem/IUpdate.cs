@@ -1,4 +1,4 @@
-﻿namespace Game.Runtime.UpdateSystem
+﻿namespace Game.Runtime.UnityCallbackSystems.UpdateSystem
 {
     public interface IUpdate
     {

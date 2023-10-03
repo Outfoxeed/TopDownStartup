@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel;
 using Game.Runtime.Enemies;
-using Game.Runtime.UpdateSystem;
+using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine;
 using Zenject;
 

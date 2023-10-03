@@ -15,7 +15,7 @@ namespace Game
 
         [SerializeField] private float timeBetweenBullet = 1f;
 
-        ObjectPool<Rigidbody2D> bla;
+        ObjectPool<Projectile> bla;
 
         bool shoot = false;
 

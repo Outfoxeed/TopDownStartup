@@ -14,27 +14,137 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <Waves>k__BackingField:
   - rid: 4091195300608475145
-  - rid: 4091195300608475144
   - rid: 3944090098286723074
+  - rid: 5789842504125251585
+  - rid: 5789842504125251588
+  - rid: 5789842504125251589
+  - rid: 5789842504125251590
+  - rid: 5789842504125251593
+  - rid: 5789842504125251594
+  - rid: 5789842504125251595
   references:
     version: 2
     RefIds:
     - rid: 3944090098286723074
       type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
       data:
-        _editorName: Spawn Enemies
-        _duration: 10
+        _editorName: Wave 1
+        _duration: 5
         _spawnPerSecond: 2
         _enemies:
         - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
-        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
-    - rid: 4091195300608475144
-      type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
-      data:
-        _editorName: Spawn One zzhdzi
-        _enemyData: {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+        - {fileID: 11400000, guid: d287a3ff367af5b4d995bf2d19b12fd9, type: 2}
     - rid: 4091195300608475145
       type: {class: WaitCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
       data:
         _editorName: Wait Cmd
-        _duration: 5
+        _duration: 1
+    - rid: 5789842504125251585
+      type: {class: CombinedCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Boss 1
+        _waveCommands:
+        - rid: 5789842504125251586
+        - rid: 5789842504125251587
+    - rid: 5789842504125251586
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Enemies
+        _duration: 10
+        _spawnPerSecond: 2
+        _enemies:
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+        - {fileID: 11400000, guid: d287a3ff367af5b4d995bf2d19b12fd9, type: 2}
+        - {fileID: 11400000, guid: afde1fdd8425fc140a375e6e514e75f2, type: 2}
+    - rid: 5789842504125251587
+      type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Spawn One Enemy Cmd
+        _enemyData: {fileID: 11400000, guid: f94b43277e5e2d344a320823c2b32e52, type: 2}
+    - rid: 5789842504125251588
+      type: {class: WaitCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Wait Cmd
+        _duration: 2
+    - rid: 5789842504125251589
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Wave 2
+        _duration: 10
+        _spawnPerSecond: 4
+        _enemies:
+        - {fileID: 11400000, guid: afde1fdd8425fc140a375e6e514e75f2, type: 2}
+        - {fileID: 11400000, guid: ca9fd20b7a1eeee4eaef683882f9c12d, type: 2}
+        - {fileID: 11400000, guid: b587b635831ef484d8f89dc82f6b1399, type: 2}
+    - rid: 5789842504125251590
+      type: {class: CombinedCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Boss 2
+        _waveCommands:
+        - rid: 5789842504125251591
+        - rid: 5789842504125251592
+    - rid: 5789842504125251591
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: 
+        _duration: 10
+        _spawnPerSecond: 2
+        _enemies:
+        - {fileID: 11400000, guid: b587b635831ef484d8f89dc82f6b1399, type: 2}
+        - {fileID: 11400000, guid: ac759f3b58940814f8fb4a26e5c976d3, type: 2}
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+    - rid: 5789842504125251592
+      type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Spawn One Enemy Cmd
+        _enemyData: {fileID: 11400000, guid: fdf13e0ecdd2f7b4f8a04f8eddb5385c, type: 2}
+    - rid: 5789842504125251593
+      type: {class: WaitCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Wait Cmd
+        _duration: 2
+    - rid: 5789842504125251594
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Wave 3
+        _duration: 10
+        _spawnPerSecond: 5
+        _enemies:
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+        - {fileID: 11400000, guid: d287a3ff367af5b4d995bf2d19b12fd9, type: 2}
+        - {fileID: 11400000, guid: afde1fdd8425fc140a375e6e514e75f2, type: 2}
+        - {fileID: 11400000, guid: ca9fd20b7a1eeee4eaef683882f9c12d, type: 2}
+        - {fileID: 11400000, guid: b587b635831ef484d8f89dc82f6b1399, type: 2}
+        - {fileID: 11400000, guid: f94b43277e5e2d344a320823c2b32e52, type: 2}
+        - {fileID: 11400000, guid: e9b2eec49eed21c48b77b568ffef9637, type: 2}
+    - rid: 5789842504125251595
+      type: {class: CombinedCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Final Boss
+        _waveCommands:
+        - rid: 5789842504125251596
+        - rid: 5789842504125251597
+    - rid: 5789842504125251596
+      type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Spawn One Enemy Cmd
+        _enemyData: {fileID: 11400000, guid: 53d0878144a14914a8022bed0fa48631, type: 2}
+    - rid: 5789842504125251597
+      type: {class: SpawnEnemiesForDurationCommand, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: 
+        _duration: 20
+        _spawnPerSecond: 5
+        _enemies:
+        - {fileID: 11400000, guid: 3f54e0454cf97d447b11641c404c21e6, type: 2}
+        - {fileID: 11400000, guid: d287a3ff367af5b4d995bf2d19b12fd9, type: 2}
+        - {fileID: 11400000, guid: afde1fdd8425fc140a375e6e514e75f2, type: 2}
+        - {fileID: 11400000, guid: ca9fd20b7a1eeee4eaef683882f9c12d, type: 2}
+        - {fileID: 11400000, guid: b587b635831ef484d8f89dc82f6b1399, type: 2}
+        - {fileID: 11400000, guid: f94b43277e5e2d344a320823c2b32e52, type: 2}
+        - {fileID: 11400000, guid: ac759f3b58940814f8fb4a26e5c976d3, type: 2}
+        - {fileID: 11400000, guid: 12b9b8d46189d42498d89a110213b985, type: 2}
+        - {fileID: 11400000, guid: fdf13e0ecdd2f7b4f8a04f8eddb5385c, type: 2}
+        - {fileID: 11400000, guid: 556f5b4178e1cd24bb393ab28657d2ca, type: 2}
+        - {fileID: 11400000, guid: e9b2eec49eed21c48b77b568ffef9637, type: 2}
+        - {fileID: 11400000, guid: f4b196aa1a2464045817c97c0bc7a488, type: 2}

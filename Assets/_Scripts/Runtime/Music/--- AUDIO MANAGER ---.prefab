@@ -45,10 +45,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - name: 
-    clip: {fileID: 0}
+  - name: Musique1
+    clip: {fileID: 8300000, guid: a736cabf9d6337748a4adecb1b035f50, type: 3}
     volume: 1
     pitch: 1
     loop: 0
     audioMixer: {fileID: 0}
-    actualSound: 0
+    actualSound: 4
+  - name: Musique2
+    clip: {fileID: 8300000, guid: af92696938387f94a9e869bd8c97f3b4, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: 0}
+    actualSound: 4
+  - name: Musique3
+    clip: {fileID: 8300000, guid: 086e877904666294b813502368ca69df, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    audioMixer: {fileID: 0}
+    actualSound: 4

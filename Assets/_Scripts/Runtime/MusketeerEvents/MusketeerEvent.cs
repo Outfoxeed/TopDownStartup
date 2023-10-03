@@ -27,10 +27,7 @@ namespace Game.Runtime.MusketeerEvents
             _action -= action;
         }
 
-        public void RemoveAllListener()
-        {
-            _action = null;
-        }
+        public void Clear() => _action = null;
         
         public static MusketeerEvent operator +(MusketeerEvent a, Action b)
         {

@@ -18,7 +18,8 @@ namespace Game.Runtime.Guns
 
         private float chrono;
 
-        public AxeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool) : base(owner, updateSystem, objPool)
+        public AxeGun(IShooter owner, IUpdateSystem updateSystem, ObjectPool<Projectile> objPool) : base(owner,
+            updateSystem, objPool)
         {
         }
 
@@ -29,26 +30,19 @@ namespace Game.Runtime.Guns
             Vector2 move = dir * speed;
 
             Projectile projectile = _projectilePool.Get();
+            projectile.Disabled.AddListener(() => _projectilePool.Release(projectile));
             projectile.transform.position = _owner.Transform.position;
             projectile.Rb.velocity = move;
-
-            _ = ReleaseProjectile(projectile);
-        }
-        private async Task ReleaseProjectile(Projectile p)
-        {
-            await Task.Delay(5000);
-            _projectilePool.Release(p);
         }
 
         private async Task ShootAction()
         {
-            for(int i = 0; i < bullet; i++)
+            for (int i = 0; i < bullet; i++)
             {
                 Shoot();
                 await Task.Delay(((int)(delay * 10)) * 100);
             }
         }
-
 
         public override void Update(float deltaTime)
         {

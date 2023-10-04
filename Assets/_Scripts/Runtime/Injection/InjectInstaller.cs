@@ -1,6 +1,7 @@
 using System;
 using Game.Runtime.Guns;
 using Game.Runtime.StartSystem;
+using Game.Runtime.TimeSystem;
 using Game.Runtime.UnityCallbackSystems.StartSystem;
 using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine;
@@ -21,6 +22,7 @@ namespace Game
 
             //Container.Bind<Patate>().AsSingle().NonLazy();
             Container.Bind(typeof(IUpdateSystem), typeof(IStartSystem)).FromComponentInNewPrefab(_unityCallbackSystemsPrefab).AsSingle().NonLazy();
+            Container.Bind<ITimeSystem>().To<TimeSystem>().AsSingle().NonLazy();
 
             Container.Bind<IPoolFactory>().To<PoolFactory>().AsSingle().NonLazy();
         }

@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02b68ef1bbee446fb9e0879267e4eaa2, type: 3}
   m_Name: GunGeneratorConfig
   m_EditorClassIdentifier: 
-  <GunGenerationCooldown>k__BackingField: 5
+  <GunGenerationCooldown>k__BackingField: 15

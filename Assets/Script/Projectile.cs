@@ -45,6 +45,9 @@ namespace Game.Runtime.Guns
 
         private void OnTriggerEnter2D(Collider2D collision)
         {
+            if (collision.attachedRigidbody == null)
+                return;
+
             if (collision.attachedRigidbody.gameObject == _player.Instance.gameObject)
             {
                 return;

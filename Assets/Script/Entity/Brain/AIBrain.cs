@@ -25,6 +25,9 @@ public class AIBrain : MonoBehaviour, IEnemy
     bool IsPlayerNear => Vector3.Distance(_root.transform.position, _playerEntity.Instance.transform.position) < _distanceDetection;
     bool IsPlayerTooNear => Vector3.Distance(_root.transform.position, _playerEntity.Instance.transform.position) < _stopDistance;
 
+    [SerializeField] private float cooldown = 0.5f;
+    private float chrono;
+
     #region EDITOR
 #if UNITY_EDITOR
     void Reset()
@@ -49,10 +52,17 @@ public class AIBrain : MonoBehaviour, IEnemy
     private void Update()
     {
         // Attack
+        chrono += Time.deltaTime;
+        
         if(IsPlayerTooNear)
         {
             _movement.Move(Vector2.zero);
-            _attack.LaunchAttack();
+
+            if(chrono > cooldown)
+            {
+                chrono = 0;
+                _attack.LaunchAttack();
+            }
         }
         // Move To Player
         else if (IsPlayerNear)

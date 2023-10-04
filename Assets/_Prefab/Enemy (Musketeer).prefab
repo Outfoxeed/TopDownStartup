@@ -235,13 +235,25 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 6950530210045002876}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1758441407288533134}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -251,11 +263,27 @@ PrefabInstance:
       value: SetActive
       objectReference: {fileID: 0}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: LaunchDamageAnim
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Game.Runtime.Entities.EntityGfx, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8151030996448565609, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
@@ -357,6 +385,7 @@ MonoBehaviour:
     _unityEvent:
       m_PersistentCalls:
         m_Calls: []
+  cooldown: 1
   <Gfx>k__BackingField: {fileID: 1758441407288533134}
 --- !u!114 &8599458633310266871 stripped
 MonoBehaviour:

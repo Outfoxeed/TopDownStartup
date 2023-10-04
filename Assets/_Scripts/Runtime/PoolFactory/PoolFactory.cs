@@ -9,7 +9,7 @@ namespace Game
     public class PoolFactory : IPoolFactory
     {
         private int amountToPool = 10;
-        private int maxCapacity = 20;
+        private int maxCapacity = 99;
 
         public ObjectPool<T> CreatePool<T>(GameObject prefab) where T : Component
         {

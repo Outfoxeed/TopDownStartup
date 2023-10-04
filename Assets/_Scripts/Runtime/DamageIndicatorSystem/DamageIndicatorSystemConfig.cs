@@ -6,5 +6,6 @@ namespace Game.Runtime.DamageIndicatorSystem
     public class DamageIndicatorSystemConfig : ScriptableObject
     {
         [field: SerializeField] public FloatingTextHandler Prefab;
+        [field: SerializeField] public int InstanceMaxCapacity { get; private set; } = 50;
     }
 }

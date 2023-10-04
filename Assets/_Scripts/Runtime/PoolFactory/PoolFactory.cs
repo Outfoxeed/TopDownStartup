@@ -9,16 +9,16 @@ namespace Game
     public class PoolFactory : IPoolFactory
     {
         private int amountToPool = 10;
-        private int maxCapacity = 99;
 
-        public ObjectPool<T> CreatePool<T>(GameObject prefab) where T : Component
+        public ObjectPool<T> CreatePool<T>(GameObject prefab, int maxCapacity) where T : Component
         {
-            return new ObjectPool<T>(() => CreatePooledItem<T>(prefab), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
+            Transform poolItemsParent = new GameObject($"Pool ({prefab.name})").transform;
+            return new ObjectPool<T>(() => CreatePooledItem<T>(prefab, poolItemsParent), OnTakeFromPool, OnReturnedToPool, OnDestroyPoolObject, true, amountToPool, maxCapacity);
         }
 
-        private T CreatePooledItem<T>(GameObject prefab) where T : Component
+        private T CreatePooledItem<T>(GameObject prefab, Transform parent) where T : Component
         {
-            GameObject obj = GameObject.Instantiate(prefab);
+            GameObject obj = GameObject.Instantiate(prefab, parent);
             obj.SetActive(false);
 
             return obj.GetComponent<T>();

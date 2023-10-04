@@ -21,7 +21,7 @@ namespace Game.Runtime.DamageIndicatorSystem
         private void Construct(IStartSystem startSystem, IPoolFactory poolFactory)
         {
             _startSubscription = startSystem.Subscribe(this);
-            _pool = poolFactory.CreatePool<FloatingTextHandler>(_config.Prefab.gameObject);
+            _pool = poolFactory.CreatePool<FloatingTextHandler>(_config.Prefab.gameObject, _config.InstanceMaxCapacity);
         }
         public void Deconstruct()
         {

@@ -9,6 +9,7 @@ namespace Game.Runtime.Guns.Factory
 {
     public class GunFactory : IGunFactory
     {
+        private const int ProjectilePoolMaxCapacity = 10;
         [Inject] private IUpdateSystem _updateSystem;
         [Inject] private GunProjectileDict _gunSpriteDict;
         [Inject] private IEnemiesManager _enemiesManager;
@@ -17,7 +18,7 @@ namespace Game.Runtime.Guns.Factory
         public IGun Create(IShooter owner, GunsType gunType)
         {
             //TODO: PoolFactory could be injected or at least created only once
-            ObjectPool<Projectile> objectPool = _poolFactory.CreatePool<Projectile>(_gunSpriteDict.ProjectilePrefabDict[gunType]);
+            ObjectPool<Projectile> objectPool = _poolFactory.CreatePool<Projectile>(_gunSpriteDict.ProjectilePrefabDict[gunType], ProjectilePoolMaxCapacity);
             
             return gunType switch
             {

@@ -7,6 +7,9 @@ using Zenject;
 
 namespace Game
 {
+    /// <summary>
+    /// NOT USED SCRIPT
+    /// </summary>
     public class shootWhereILook : MonoBehaviour
     {
         [SerializeField] Transform firePoint;
@@ -26,7 +29,7 @@ namespace Game
         {
             shoot = true;
             PoolFactory myObjectPool = new PoolFactory();
-            bla = myObjectPool.CreatePool<Projectile>(bulletPrefab);
+            bla = myObjectPool.CreatePool<Projectile>(bulletPrefab, 10);
             StartCoroutine(Shoot());
         }
 

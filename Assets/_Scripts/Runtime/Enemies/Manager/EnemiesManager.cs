@@ -8,13 +8,14 @@ namespace Game.Runtime.Enemies
 {
     public class EnemiesManager : IEnemiesManager
     {
+        private const int EnemiesMaxCapacity = 100;
         private IObjectPool<AIBrain> _enemiesPool;
         private List<AIBrain> _enemies = new(); 
         
         [Inject]
         public void Construct(AIBrain prefab, IPoolFactory poolFactory)
         {
-            _enemiesPool = poolFactory.CreatePool<AIBrain>(prefab.gameObject);
+            _enemiesPool = poolFactory.CreatePool<AIBrain>(prefab.gameObject, EnemiesMaxCapacity);
         }
 
         public AIBrain GetClosestEnemy(Vector2 worldPosition)

@@ -203,7 +203,7 @@ MonoBehaviour:
   - {x: 0.2958265, y: -0.2958265, z: 0}
   m_ShapePathHash: 1522865524
   m_Mesh: {fileID: 0}
-  m_InstanceId: -181664
+  m_InstanceId: -236762
   m_LocalBounds:
     m_Center: {x: -0.011600763, y: -0.10208678, z: 0}
     m_Extent: {x: 0.30742726, y: 0.19373971, z: 0}
@@ -551,6 +551,11 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 5272552500058403406, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
   m_PrefabInstance: {fileID: 5388345588737081166}
   m_PrefabAsset: {fileID: 0}
+--- !u!212 &282848627211324679 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5272552500058403401, guid: cf6879ba03f6f5e4ab3ad5150b0ba076, type: 3}
+  m_PrefabInstance: {fileID: 5388345588737081166}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8158480075683173475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -576,6 +581,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <MaxHealth>k__BackingField
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -585,7 +594,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -600,6 +609,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 11400000, guid: 91296e0b9d925e0429752390ee24be94, type: 2}
@@ -611,6 +624,10 @@ PrefabInstance:
       propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 11400000, guid: ffc9b4e6baa82a341a53478523aadeb2, type: 2}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 5452180978907327125}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -628,12 +645,20 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Healed>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Raise
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Raise
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: LaunchDamageAnim
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
@@ -648,6 +673,10 @@ PrefabInstance:
       value: ScriptableObjectArchitecture.GameEventBase, ScriptableObject-Architecture
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Game.Runtime.Entities.EntityGfx, Game
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
@@ -657,6 +686,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2750717334413120766, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      propertyPath: <Damaged>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 2880931813937602012, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
@@ -757,7 +790,28 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 614539736087202569, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4926425620692954407}
+    - targetCorrespondingSourceObject: {fileID: 8478795163881341575, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5452180978907327125}
   m_SourcePrefab: {fileID: 100100000, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+--- !u!1 &329331358423848676 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8478795163881341575, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}
+  m_PrefabInstance: {fileID: 8158480075683173475}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5452180978907327125
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 329331358423848676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de1cb24316f541de82f17ac008a28009, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _sr: {fileID: 282848627211324679}
 --- !u!4 &2349297346374642035 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5882509366201892112, guid: a25403db85ec5f24c86189b35f44f1a7, type: 3}

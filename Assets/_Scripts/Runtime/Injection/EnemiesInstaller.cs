@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Runtime.DamageIndicatorSystem;
+﻿using Game.Runtime.DamageIndicatorSystem;
 using Game.Runtime.Enemies;
 using Game.Runtime.GunGenerator;
 using Game.Runtime.Guns.Factory;

@@ -1,12 +1,8 @@
-using Codice.CM.Common;
-using Game.Runtime.Enemies;
-using System.Collections;
-using System.Collections.Generic;
 using System.Threading.Tasks;
+using Game.Runtime.Enemies;
 using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine;
 using UnityEngine.Pool;
-using Zenject;
 
 namespace Game.Runtime.Guns
 {

@@ -1,8 +1,6 @@
 ﻿#region
-
 using System.Collections.Generic;
 using UnityEngine;
-
 #endregion
 
 //when something get into the alta, make the runes glow

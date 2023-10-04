@@ -1,9 +1,7 @@
 using System.Collections;
-using System.Collections.Generic;
 using Game.Runtime.Guns;
 using UnityEngine;
 using UnityEngine.Pool;
-using Zenject;
 
 namespace Game
 {

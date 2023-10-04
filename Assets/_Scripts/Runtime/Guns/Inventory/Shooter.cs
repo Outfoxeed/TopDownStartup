@@ -3,7 +3,6 @@ using System.Linq;
 using Game.Runtime.Guns;
 using Game.Runtime.Guns.Factory;
 using UnityEngine;
-using Zenject;
 
 namespace Game.Runtime
 {

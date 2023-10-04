@@ -1,5 +1,5 @@
-using NaughtyAttributes;
 using Game.Runtime.HealthSystem;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class HealthProxy : MonoBehaviour, IHealthProxy, IHealth

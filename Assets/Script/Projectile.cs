@@ -1,13 +1,7 @@
-using System;
-using System.Collections;
 using System.Threading;
 using System.Threading.Tasks;
 using Game.Runtime.MusketeerEvents;
 using UnityEngine;
-using Game.Runtime.MusketeerEvents;
-using System;
-using UnityEngine.Pool;
-using Zenject;
 
 namespace Game.Runtime.Guns
 {

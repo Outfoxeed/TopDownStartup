@@ -1,5 +1,4 @@
-﻿using Game.Runtime.Enemies;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Game.Runtime.WaveSpawner
 {

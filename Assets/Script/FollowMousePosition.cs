@@ -1,9 +1,4 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Threading;
 using UnityEngine;
-using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class FollowMousePosition : MonoBehaviour//, IObservable<float>
@@ -86,10 +81,10 @@ public class FollowMousePosition : MonoBehaviour//, IObservable<float>
     //        {
     //            if (disposing)
     //            {
-    //                // TODO: supprimer l'état managé (objets managés)
+    //                // TODO: supprimer l'Ã©tat managÃ© (objets managÃ©s)
     //            }
 
-    //            // TODO: libérer les ressources non managées (objets non managés) et substituer le finaliseur
+    //            // TODO: libÃ©rer les ressources non managÃ©es (objets non managÃ©s) et substituer le finaliseur
     //            // TODO: affecter aux grands champs une valeur null
     //            disposedValue = true;
     //        }
@@ -100,16 +95,16 @@ public class FollowMousePosition : MonoBehaviour//, IObservable<float>
 
     //    }
 
-    //    // // TODO: substituer le finaliseur uniquement si 'Dispose(bool disposing)' a du code pour libérer les ressources non managées
+    //    // // TODO: substituer le finaliseur uniquement si 'Dispose(bool disposing)' a du code pour libÃ©rer les ressources non managÃ©es
     //    ~DisposeCall()
     //    {
-    //        // Ne changez pas ce code. Placez le code de nettoyage dans la méthode 'Dispose(bool disposing)'
+    //        // Ne changez pas ce code. Placez le code de nettoyage dans la mÃ©thode 'Dispose(bool disposing)'
     //        Dispose(disposing: false);
     //    }
 
     //    public void Dispose()
     //    {
-    //        // Ne changez pas ce code. Placez le code de nettoyage dans la méthode 'Dispose(bool disposing)'
+    //        // Ne changez pas ce code. Placez le code de nettoyage dans la mÃ©thode 'Dispose(bool disposing)'
     //        Dispose(disposing: true);
     //        GC.SuppressFinalize(this);
     //    }

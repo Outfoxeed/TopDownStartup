@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Runtime.Enemies;
+﻿using Game.Runtime.Enemies;
 using Game.Runtime.WaveSpawner.WaveCommands.SpawnEnemiesCommands;
 using UnityEngine;
 

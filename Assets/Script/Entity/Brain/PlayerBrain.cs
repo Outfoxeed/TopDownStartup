@@ -1,8 +1,6 @@
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 using Game.Runtime;
 using Game.Runtime.Guns.Factory;
+using NaughtyAttributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using Zenject;

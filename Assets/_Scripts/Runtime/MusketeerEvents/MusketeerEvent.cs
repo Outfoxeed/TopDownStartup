@@ -1,5 +1,4 @@
 using System;
-using Game.Runtime.HealthSystem;
 using UnityEngine;
 using UnityEngine.Events;
 

@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using Game.Runtime.Enemies;
-
-namespace Game.Runtime.WaveSpawner
+﻿namespace Game.Runtime.WaveSpawner
 {
     public interface IWaveSpawnerConfig
     {

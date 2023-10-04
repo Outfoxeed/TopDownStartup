@@ -1,5 +1,4 @@
-﻿using System;
-using Game.Runtime.MusketeerEvents;
+﻿using Game.Runtime.MusketeerEvents;
 
 namespace Game.Runtime.HealthSystem
 {

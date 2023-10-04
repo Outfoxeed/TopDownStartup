@@ -1,11 +1,8 @@
-using System;
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 using Game.Runtime.Enemies;
 using Game.Runtime.Entities;
 using Game.Runtime.HealthSystem;
 using Game.Runtime.MusketeerEvents;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class AIBrain : MonoBehaviour, IEnemy

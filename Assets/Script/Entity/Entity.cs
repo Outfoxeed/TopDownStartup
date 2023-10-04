@@ -1,7 +1,5 @@
-using NaughtyAttributes;
-using System.Collections;
-using System.Collections.Generic;
 using Game.Runtime.HealthSystem;
+using NaughtyAttributes;
 using UnityEngine;
 
 public class Entity : MonoBehaviour

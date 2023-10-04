@@ -1,8 +1,6 @@
 ﻿using System;
 using Game.Runtime.UnityCallbackSystems.UpdateSystem;
 using UnityEngine.Pool;
-using UnityEngine;
-using Zenject;
 
 namespace Game.Runtime.Guns
 {

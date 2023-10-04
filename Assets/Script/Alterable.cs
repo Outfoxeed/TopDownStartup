@@ -1,8 +1,6 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using UnityEngine;
 using UnityEngine.Assertions;
 using Object = UnityEngine.Object;
 
@@ -40,7 +38,7 @@ public class Alterable<T>
         // Guard
         Assert.IsNotNull(method);
         Assert.IsTrue(weight > 0);
-        // Guard à l'ancienne
+        // Guard Ã  l'ancienne
         // if (method == null) throw new ArgumentNullException(nameof(method));
         // if (weight < 0) throw new ArgumentException(nameof(weight));
 
@@ -70,7 +68,7 @@ public class Alterable<T>
     {
         _data.Remove(_data.First(i => i.Label == label));
 
-        // ça marche
+        // Ã§a marche
         //for (int i = 0; i < _data.Count; i++)
         //{
         //    if (_data[i].Label == label)
@@ -80,7 +78,7 @@ public class Alterable<T>
         //    }
         //}
 
-        // ça marche pas
+        // Ã§a marche pas
         //foreach(Transformateur t in _data)
         //{
         //    if(t.Label == label)

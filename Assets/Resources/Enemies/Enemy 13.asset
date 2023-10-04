@@ -9,7 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 02b68ef1bbee446fb9e0879267e4eaa2, type: 3}
-  m_Name: GunGeneratorConfig
+  m_Script: {fileID: 11500000, guid: d994bbdb79504a4d809a9d9f9b0d5b95, type: 3}
+  m_Name: Enemy 13
   m_EditorClassIdentifier: 
-  <GunGenerationCooldown>k__BackingField: 30
+  <MaxHealth>k__BackingField: 300
+  <MoveSpeed>k__BackingField: 0.9
+  <Sprite>k__BackingField: {fileID: -487168717, guid: 0eeec3b0dfab16940a648c654ebaa5c6, type: 3}

@@ -22,6 +22,7 @@ MonoBehaviour:
   - rid: 5789842504125251593
   - rid: 5789842504125251594
   - rid: 5789842504125251595
+  - rid: 7116277947317878784
   references:
     version: 2
     RefIds:
@@ -148,3 +149,8 @@ MonoBehaviour:
         - {fileID: 11400000, guid: 556f5b4178e1cd24bb393ab28657d2ca, type: 2}
         - {fileID: 11400000, guid: e9b2eec49eed21c48b77b568ffef9637, type: 2}
         - {fileID: 11400000, guid: f4b196aa1a2464045817c97c0bc7a488, type: 2}
+    - rid: 7116277947317878784
+      type: {class: SpawnOneEnemyCmd, ns: Game.Runtime.WaveSpawner.WaveCommands, asm: Game}
+      data:
+        _editorName: Boss boss la mort
+        _enemyData: {fileID: 11400000, guid: aa3db41268923da4d8fec35680ea6ebb, type: 2}

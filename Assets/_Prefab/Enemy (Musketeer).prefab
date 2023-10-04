@@ -231,6 +231,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: _maxHealthRef._useConstant
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
+      propertyPath: _maxHealthRef._constantValue
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8127279266068467787, guid: 90459093b91e7ff43b25570aeda2cf1e, type: 3}
       propertyPath: <Death>k__BackingField._unityEvent.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}

@@ -2,18 +2,36 @@ using System;
 using Game.Runtime.HealthSystem;
 using Game.Runtime.MusketeerEvents;
 using NaughtyAttributes;
+using ScriptableObjectArchitecture;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Assertions;
 
 public class Health : MonoBehaviour, IHealthComponent, IHealth
 {
-    [field: SerializeField] public int MaxHealth { get; private set; }
+    [SerializeField] private IntReference _maxHealthRef;
+    
+    public int MaxHealth
+    {
+        get => _maxHealthRef.Value;
+        private set => _maxHealthRef.Value = value;
+    }
 
-    [field: SerializeField, ReadOnly]
-    public int CurrentHealth { get; private set; }
+    [SerializeField, ReadOnly] 
+    private int _currentHealth;
+    public int CurrentHealth
+    {
+        get => _currentHealth;
+        private set
+        {
+            _currentHealth = value;
+            HealthUpdated.Invoke(_currentHealth);
+        }
+    }
+
     public bool IsDead => CurrentHealth <= 0;
 
+    [field: SerializeField] public MusketeerEvent<int> HealthUpdated { get; private set; }
     [field: SerializeField] public MusketeerEvent<int> Damaged { get; private set; } = new();
     [field: SerializeField] public MusketeerEvent<int> Healed { get; private set; } = new();
     [field: SerializeField] public MusketeerEvent Death { get; private set; } = new();

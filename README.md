@@ -88,3 +88,6 @@ There are the available WaveCommands:
 - ClearAllEnemies (kill all enemies)
 - Wait (wait for X seconds)
 - Combined (contains a list of WaveCommands and wait for all commands in its list to be finished to consider itself finished)
+
+## Iterator
+We are using the iterator pattern through LinQ to get the closest enemy to a position
